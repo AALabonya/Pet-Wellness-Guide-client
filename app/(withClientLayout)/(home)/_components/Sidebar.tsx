@@ -22,8 +22,8 @@ const Sidebar = ({
     <div className="flex flex-col gap-5">
       <div className="w-full space-y-6">
         <Card>
-          <CardHeader>
-            <h1>Who to Follow</h1>
+          <CardHeader className="flex justify-center">
+            <h1 className="text-center">Who to Follow</h1>
           </CardHeader>
           <CardBody>
             <div className="space-y-4">
@@ -41,8 +41,8 @@ const Sidebar = ({
                     <div className="flex items-center space-x-3">
                       <Avatar src={profilePicture || ""} />
                       <div>
-                        <p className="font-medium">User </p>
-                        <p className="text-sm text-gray-500">{email}</p>
+                        <p className="font-medium text-[14px]">User </p>
+                        <p className="text-[11px] text-gray-500">{email}</p>
                       </div>
                     </div>
                     <Followers userData={userData} userId={_id} />
@@ -107,8 +107,8 @@ const Sidebar = ({
         </CardBody>
       </Card> */}
       <Card>
-  <CardHeader>
-    <h1>Premium Posts</h1>
+  <CardHeader className="flex justify-center">
+    <div className="flex justify-center"><h1 className="text-center " >Premium Posts</h1></div>
   </CardHeader>
   <CardBody>
     <div className="space-y-4">
@@ -143,16 +143,16 @@ const Sidebar = ({
             </div>
             <div>
              <div className="flex">
-             <p className="text-sm text-gray-500">
-                <Code>Category: {category}</Code>
+             <p className="text-[12px] text-gray-500">
+                <Code className="text-[12px]">{category}</Code>
               </p>
               {isPremium && (
                 <div className="">
-                  <BadgeCheck className="text-[#bc4124]" />
+                  <BadgeCheck className="text-[#bc4124] text-sm" />
                 </div>
               )}
              </div>
-              <p className="font-medium">{title}</p>
+              <p className="font-medium text-[13px]">{title}</p>
             </div>
           </Link>
         )

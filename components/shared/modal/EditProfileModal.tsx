@@ -34,8 +34,6 @@ import {
   useForm,
 } from "react-hook-form";
 import PWInput from "@/components/form/PWInput";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { storage } from "@/firebase/firebase.config";
 import Image from "next/image";
 import PWSelect from "@/components/form/PWSelect";
 import PWTextarea from "@/components/form/PWTextarea";

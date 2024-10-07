@@ -66,6 +66,7 @@ const MyPosts = () => {
           <TableColumn>Thumbnail</TableColumn>
           <TableColumn>Title</TableColumn>
           <TableColumn>User</TableColumn>
+          <TableColumn>Premium</TableColumn>
           <TableColumn>Status</TableColumn>
           <TableColumn>Category</TableColumn>
           <TableColumn>Likes</TableColumn>
@@ -84,37 +85,31 @@ const MyPosts = () => {
             }: TPost) => (
               <TableRow key={_id}>
                 <TableCell>
-                  <Avatar
-                    src={typeof thumbnail === "string" ? thumbnail : ""}
-                  />
+                <Avatar
+  src={Array.isArray(thumbnail) && thumbnail.length > 0 ? thumbnail[0] : ""}
+/>
+
                 </TableCell>
                 <TableCell>{title}</TableCell>
                 <TableCell className="flex gap-2 items-center">
-                  <Badge
-                    content={
-                      userId?.premiumMember ? (
-                        <BadgeCheck
-                          className="bg-primary rounded-full"
-                          size={20}
-                        />
-                      ) : (
-                        "Regular"
-                      )
-                    }
-                    className="py-1"
-                    color="primary"
-                    size="sm"
-                  >
-                    <Avatar
-                      src={
-                        typeof userId?.profilePicture === "string"
-                          ? userId?.profilePicture
-                          : ""
-                      }
-                    />
-                  </Badge>
+                 
                   <h3>{userId?.name}</h3>
                 </TableCell>
+                <TableCell> 
+                  <Badge
+                 className="py-1"
+                 size="sm"
+               >
+                 {userId?.premiumMember ? (
+                   <BadgeCheck
+                     className="text-[#bc4124] rounded-full"
+                     size={20}
+                   />
+                 ) : (
+                   "Regular"
+                 )}
+               </Badge>
+               </TableCell>
                 <TableCell>
                   <span>{isPremium ? "Premium" : "Regular"}</span>
                 </TableCell>

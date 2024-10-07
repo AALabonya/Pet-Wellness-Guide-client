@@ -25,8 +25,6 @@ import {
   useForm,
 } from "react-hook-form";
 import PWInput from "@/components/form/PWInput";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { storage } from "@/firebase/firebase.config";
 import Image from "next/image";
 import { useGetPost, useUpdatePost } from "@/hooks/post.hook";
 import PWSelect from "@/components/form/PWSelect";
@@ -39,7 +37,8 @@ const EditPostModal = ({ postId }: { postId: string }) => {
 
   const [content, setContent] = useState("");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [isImageUploading, setIsImageUploading] = useState(false);
+  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  const [images, setImages] = useState<File[]>([]);
   const [selectedProfilePicture, setSelectedProfilePicture] =
     useState<File | null>(null);
 
@@ -50,56 +49,47 @@ const EditPostModal = ({ postId }: { postId: string }) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+  //   // Handle file selection and preview
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files ? Array.from(e.target.files) : [];
 
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreviewUrl(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+    if (files.length > 0) {
+      setImages((prev) => [...prev, ...files]);
 
-      setSelectedProfilePicture(file);
+      const newPreviews = files.map((file) => {
+        const reader = new FileReader();
+
+        reader.readAsDataURL(file);
+
+        return new Promise<string>((resolve) => {
+          reader.onloadend = () => resolve(reader.result as string);
+        });
+      });
+
+      Promise.all(newPreviews).then((previews) => {
+        setImagePreviews((prev) => [...prev, ...previews]);
+      });
     }
   };
 
-  const uploadImageToFirebase = async (
-    imageFile: File
-  ): Promise<string | null | undefined> => {
-    const storageRef = ref(storage, `images/${imageFile.name}`);
+  const removeImage = (index: number) => {
+    const updatedImages = images.filter((_, i) => i !== index);
+    const updatedPreviews = imagePreviews.filter((_, i) => i !== index);
 
-    setIsImageUploading(true);
-
-    try {
-      const snapshot = await uploadBytes(storageRef, imageFile);
-      const downloadUrl = await getDownloadURL(snapshot.ref);
-
-      return downloadUrl;
-    } catch (error) {
-      console.log("Error uploading image", error);
-      return null;
-    } finally {
-      setIsImageUploading(false);
-    }
-  };
-
-  const handleRemoveImage = () => {
-    setPreviewUrl(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
+    setImages(updatedImages);
+    setImagePreviews(updatedPreviews);
   };
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const formData= new FormData
     const updatePostData = {
       ...data,
       content,
-      thumbnail: selectedProfilePicture
-        ? await uploadImageToFirebase(selectedProfilePicture)
-        : postData?.data?.thumbnail,
     };
-
+    formData.append("data", JSON.stringify(postData));
+    images.forEach((image) => {
+      formData.append(`images`, image);
+    });
 
     await handleUpdatePost({ postId, userData: updatePostData });
 
@@ -150,25 +140,29 @@ const EditPostModal = ({ postId }: { postId: string }) => {
                       />
                     </div>
                     <div>
-                      {(previewUrl || postData?.data?.thumbnail) && (
-                        <div className="mt-4 flex justify-end relative py-2">
-                          <span
-                            onClick={handleRemoveImage}
-                            className="hover:bg-red-400 cursor-pointer hover:scale-110 absolute z-50 top-2 right-2 bg-red-500 rounded-full text-white p-[1px]"
-                          >
-                            <X size={20} />
-                          </span>
-                          <div className="relative w-full h-64">
-                            <Image
-                              src={previewUrl || postData?.data?.thumbnail}
-                              alt="Profile picture preview"
-                              fill
-                              style={{ objectFit: "contain" }}
-                              className="rounded-md w-full"
-                            />
-                          </div>
-                        </div>
-                      )}
+                    {imagePreviews.length > 0 && (
+  <div className="mt-4 flex flex-wrap gap-4">
+    {imagePreviews.map((preview, index) => (
+      <div key={index} className="relative w-32 h-32">
+        <span
+          onClick={() => removeImage(index)} // Pass index to remove specific image
+          className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1 cursor-pointer hover:bg-red-400 hover:scale-110 z-50"
+        >
+          <X size={20} />
+        </span>
+        <div className="relative w-full h-full">
+          <Image
+            src={preview}
+            alt={`Image preview ${index + 1}`}
+            fill
+            style={{ objectFit: "cover" }} // Ensures image fits properly
+            className="rounded-md"
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+)}
                       <div className="space-y-2">
                         <label
                           className="flex h-14 w-full cursor-pointer items-center justify-center rounded-xl border-2 border-default-200 text-default-500 shadow-sm transition-all duration-100 hover:border-default-400"
@@ -181,8 +175,9 @@ const EditPostModal = ({ postId }: { postId: string }) => {
                           className="hidden"
                           id="image"
                           type="file"
+                          multiple
                           accept="image/*"
-                          onChange={handleFileChange}
+                          onChange={handleImageChange}
                           ref={fileInputRef}
                         />
                       </div>

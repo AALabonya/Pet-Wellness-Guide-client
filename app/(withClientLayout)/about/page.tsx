@@ -1,72 +1,121 @@
-import { Card } from "@nextui-org/card";
-import { Divider } from "@nextui-org/divider";
+import React from 'react';
+import Link from 'next/link';
 
 export default function AboutUs() {
+  const milestones = [
+    { year: "2015", event: "Founded PetCare with a mission to provide reliable tips and resources for pet owners." },
+    { year: "2017", event: "Launched our online community, bringing pet owners together to share stories and advice." },
+    { year: "2019", event: "Introduced our blog section, featuring articles from pet care experts and veterinarians." },
+    { year: "2021", event: "Expanded our content to include video tutorials and webinars for pet training and care." },
+    { year: "2023", event: "Celebrated 100,000 community members and released our first pet care e-book." },
+    { year: "2024", event: "Launched a mobile app to provide easy access to pet care tips and resources on the go." },
+  ];
+
   return (
-    <Card className="max-w-7xl mx-auto my-12 p-8 shadow-none">
-      <h2 className="text-3xl font-semibold text-center mb-6">About PawSage</h2>
-      <Divider className="my-6" />
-
-      <div className="space-y-8">
-        <section>
-          <h3 className="text-xl font-medium mb-3">Our Story</h3>
-          <p className="text-gray-600">
-            PawSage was founded by a group of dedicated pet enthusiasts with a
-            shared vision: to create a comprehensive resource for pet owners
-            that combines expert advice with heartwarming stories. Our platform
-            has since grown into a trusted source of information and inspiration
-            for animal lovers worldwide.
-          </p>
-        </section>
-
-        <section>
-          <h3 className="text-xl font-medium mb-3">Our Mission</h3>
-          <p className="text-gray-600">
-            PawSage, our mission is to empower pet owners with knowledge and
-            inspiration, ensuring that every furry, feathered, or scaly friend
-            receives the best care possible. We strive to strengthen the bond
-            between humans and their animal companions through practical tips,
-            expert insights, and touching narratives.
-          </p>
-        </section>
-
-        <section>
-          <h3 className="text-xl font-medium mb-3">Our Team</h3>
-          <p className="text-gray-600">
-            Our team consists of experienced veterinarians, certified animal
-            behaviorists, and passionate pet owners. This diverse group of
-            experts collaborates to bring you accurate, up-to-date, and engaging
-            content about pet care and animal companionship. From our writers
-            and editors to our community moderators, every team member is
-            committed to our mission of improving the lives of pets and their
-            owners.
-          </p>
-        </section>
-
-        <Divider className="my-6" />
-
-        <section>
-          <h3 className="text-xl font-medium mb-3">Our Vision</h3>
-          <p className="text-gray-600">
-            We envision a world where every pet owner is equipped with the
-            knowledge and inspiration to provide the best possible care for
-            their animal companions. Through our platform, we aim to foster a
-            community where pet lovers can learn, share experiences, and grow
-            together. By promoting responsible pet ownership and celebrating the
-            human-animal bond, we strive to contribute to a society where pets
-            and their humans lead happier, healthier lives together.
-          </p>
-        </section>
+    <div>
+      {/* Hero Section */}
+      <div className="bg-cover bg-center h-64" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1496284427489-f59461d8a8e6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")' }}>
+        <div className="flex flex-col items-center justify-center h-full">
+          <h1 className="text-4xl font-bold text-white mb-2">About Us</h1>
+          <div className="flex">
+            <Link href="/" className="text-white mr-2">Home</Link>
+            <span className="text-white">/</span>
+            <Link href="/about-us" className="text-white ml-2">About Us</Link>
+          </div>
+        </div>
       </div>
 
-      <Divider className="my-6" />
+      
+      {/* Main Content */}
 
-      <footer className="text-center text-gray-600">
-        <p>
-          Join us in our commitment to enhancing the lives of pets and their
-          human companions through education, inspiration, and community.
-        </p>
-      </footer>
-    </Card>
+          <div className='flex gap-5'>
+          <div className="flex w-full grow bg-slate-50 @container py-3 w-1/2">
+              <div className="w-full gap-1 overflow-hidden bg-slate-50 @[480px]:gap-2 aspect-[3/2] grid grid-cols-[2fr_1fr_1fr]">
+                <div
+                  className="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none row-span-2"
+                  style={{backgroundImage: 'url("https://cdn.usegalileo.ai/stability/b96711a9-3db5-40ba-a766-3ac448d7d2a9.png")'}}
+                ></div>
+                <div
+                  className="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none col-span-2"
+                  style={{backgroundImage: 'url("https://cdn.usegalileo.ai/stability/b5d97cb2-ee2d-4f6a-b83a-3b5a607175bf.png");'}}
+                ></div>
+                <div
+                  className="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none"
+                  style={{backgroundImage: 'url("https://cdn.usegalileo.ai/stability/9b80eec9-2e47-4ae1-a17a-7e04ba44ca6b.png");'}}
+                ></div>
+                <div
+                  className="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none"
+                  style={{backgroundImage: 'url("https://cdn.usegalileo.ai/sdxl10/c43ef902-e39b-447e-864d-77e01cc4dca5.png")'}}
+                ></div>
+              </div>
+            </div>
+           <div className='w-1/2 lg:pt-32'>At PetCare, we’re committed to enhancing the relationship between pet owners and their beloved pets. Founded in 2015, our mission is to provide trusted pet care advice, helpful resources, and engaging stories that cater to every pet lover’s needs. From expert articles to community tips, we’ve grown into a platform with 100,000+ members, offering everything from training guides to health tips. Our dedicated team works tirelessly to ensure you have the most accurate information, whether you're a seasoned pet parent or just getting started.
+
+Join us in nurturing happy, healthy pets!</div>
+          </div>
+
+ 
+
+      {/* Mission Section */}
+      <div className="bg-gray-100 py-8 mt-8 px-8">
+        <div className="flex">
+        <div className="flex-1 bg-white ml-4 p-6 rounded-md lg:pt-32">
+            <h4 className="text-2xl font-bold">Our Mission at PetCare</h4>
+            <p className="mt-2">At PetCare, our mission is to enhance the bond between pets and their owners by providing trusted advice, heartwarming stories, and a supportive community.</p>
+            <Link href="/about">
+              <button className="bg-[#148d8c] text-white px-4 py-2 rounded mt-4">Learn More</button>
+            </Link>
+          </div>
+          <div className="flex-1">
+            <img src="https://images.unsplash.com/photo-1516750105099-4b8a83e217ee?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mission" className="rounded-lg w-full h-auto" />
+          </div>
+         
+        </div>
+      </div>
+
+      {/* History Section */}
+      <h2 className="text-4xl font-bold mb-8 text-center">Our History & Milestones</h2>
+      <div className="flex justify-center mb-6">
+        <div className="relative space-y-4">
+          {milestones.map((milestone, index) => (
+            <div key={index} className="flex items-start mb-4">
+              <span className="font-bold text-lg text-gray-600 w-16">{milestone.year}</span>
+              <div className="ml-4">
+                <div className="flex items-center mb-1">
+                  <span className="bg-[#148d8c] text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">{/* You can use any icon here */}</span>
+                  <p className="text-lg">{milestone.event}</p>
+                </div>
+                {index < milestones.length - 1 && (
+                  <div className="absolute left-6 top-4 w-1 h-full bg-gray-300"></div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Visit Us Section */}
+      {/* Uncomment this section if needed */}
+      {/* <div className="bg-gray-100 py-8 mt-8 px-8">
+        <div className="flex">
+          <div className="flex-1">
+            <iframe
+              src="https://maps.google.com/maps?q=Dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-400 border-0 rounded-lg"
+              allowFullScreen=""
+              loading="lazy"
+              title="Location Map"
+            ></iframe>
+          </div>
+          <div className="flex-1 bg-white p-6 rounded-md ml-4">
+            <h4 className="text-2xl font-bold">Visit Us</h4>
+            <p className="mt-2">If you’re in the area, feel free to visit us at our office. We’d love to meet you and your pets!</p>
+            <p>Location: Dhaka, Bangladesh</p>
+            <p>Email: support@petcare.com</p>
+            <p>Phone: +880123456789</p>
+          </div>
+        </div>
+      </div> */}
+    </div>
   );
 }

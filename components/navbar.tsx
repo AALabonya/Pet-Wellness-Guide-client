@@ -57,22 +57,19 @@ export const Navbar = () => {
     </div>
   </NextLink>
 </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
-        </ul>
+<ul className="hidden lg:flex gap-4 justify-end ml-2 w-full">
+  {siteConfig.navItems.map((item) => (
+    <NavbarItem key={item.href}>
+      <NextLink className="text-white flex items-center gap-2" href={item.href}>
+        <item.icon className="w-5 h-5" /> {/* Render the Lucide icon */}
+        {item.label} {/* Display the label */}
+      </NextLink>
+    </NavbarItem>
+  ))}
+</ul>
+
+
+
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">

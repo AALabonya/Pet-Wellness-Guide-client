@@ -62,14 +62,14 @@ const Followers = ({
 
   return (
     <Button
-      className={"bg-primary text-white border-default-200"}
+      className={"bg-primary text-white text-[10px] border-default-200"}
       color="primary"
       radius="full"
       size="sm"
       onClick={handleFollower}
       variant={"bordered"}
       endContent={
-        isFollowing ? <UserCheck size={16} /> : <UserPlus size={16} />
+        isFollowing ? <UserCheck size={14} /> : <UserPlus size={14} />
       }
     >
       {isFollowing ? "Unfollow" : "Follow"}
