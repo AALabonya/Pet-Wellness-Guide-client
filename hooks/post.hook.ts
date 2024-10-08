@@ -42,10 +42,10 @@ export const useGetPost = (postId: string) => {
 };
 
 export const useUpdatePost = () => {
-  return useMutation<any, Error, {userData: FieldValues, postId: string}>({
+  return useMutation<any, Error, {formData: FieldValues, postId: string}>({
     mutationKey: ["post"],
-    mutationFn: async ({ userData, postId }) =>
-      await updatePost(postId, userData),
+    mutationFn: async ({ formData, postId }) =>
+      await updatePost(postId, formData),
     onSuccess: (data) => {
       toast.success(data.message || "Update Post successful");
     },

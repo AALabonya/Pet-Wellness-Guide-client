@@ -1,15 +1,19 @@
-import { Spinner } from "@nextui-org/spinner";
-import React from "react";
+"use client";
+import React from 'react';
+import loader from "@/public/loader.json";
+import { Player } from '@lottiefiles/react-lottie-player';
 
-const Loading = () => {
+const loading = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-opacity-30 bg-white backdrop-blur-lg rounded-lg shadow-lg">
-      <Spinner size="lg" />
-      <span className="ml-4 text-xl font-semibold text-gray-700">
-        Loading...
-      </span>
+    <div className="flex items-center justify-center h-screen">
+      <Player
+        autoplay
+        loop
+        src={loader}
+        className='w-[130px]'
+      />
     </div>
   );
 };
 
-export default Loading;
+export default loading;

@@ -19,11 +19,11 @@ const Sidebar = ({
   premium?: boolean;
 }) => {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 pt-5">
       <div className="w-full space-y-6">
         <Card>
           <CardHeader className="flex justify-center">
-            <h1 className="text-center">Who to Follow</h1>
+            <h1 className="text-center">New Pepoles</h1>
           </CardHeader>
           <CardBody>
             <div className="space-y-4">

@@ -115,6 +115,7 @@ const EditProfileModal = ({ userData }: { userData: TUser }) => {
  
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
+console.log(file);
 
     if (file) {
       const reader = new FileReader();
@@ -132,26 +133,56 @@ const EditProfileModal = ({ userData }: { userData: TUser }) => {
     }
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const formData = new FormData();
+//   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+//     console.log(data,"dataaaaaaaaaaa");
+    
+//     const formData = new FormData();
+    
+//     // Convert the entire data object to JSON and append it as a string
+//     formData.append("data", JSON.stringify(data));
   
-    // Convert the entire data object to JSON and append it as a string
-    formData.append("data", JSON.stringify(data));
+//     const profilePicture = fileInputRef.current?.files?.[0];
+//     if (profilePicture) {
+//       formData.append("profilePicture", profilePicture);
+//     }
   
-    const profilePicture = fileInputRef.current?.files?.[0];
-    if (profilePicture) {
-      formData.append("profilePicture", profilePicture);
-    }
+//     // Send the formData to the backend
+//     await updateProfile(formData);
   
-    // Send the formData to the backend
-    await updateProfile(userData);
+//       if (!isPending && isSuccess) {
+//       reset();
+//       setPreviewUrl(null);
+//       onOpenChange();
+//   }
+// }
+const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+  // Get the email from the form (from hidden input or directly from userData)
+  const email = data.email || userData.email;
+
+  // Log the data to check for email
+  console.log("Submitted data:", { ...data, email });
+
+  const formData = new FormData();
   
-      if (!isPending && isSuccess) {
-      reset();
-      setPreviewUrl(null);
-      onOpenChange();
+  // Append JSON data
+  formData.append("data", JSON.stringify({ ...data, email }));
+
+  // Append the profile picture, if selected
+  const profilePicture = fileInputRef.current?.files?.[0];
+  if (profilePicture) {
+    formData.append("profilePicture", profilePicture);
   }
-}
+
+  // Send the formData to the backend
+  await updateProfile(formData);
+
+  if (!isPending && isSuccess) {
+    reset();
+    setPreviewUrl(null);
+    onOpenChange();
+  }
+};
+
   return (
     <>
       <Button
@@ -182,15 +213,18 @@ const EditProfileModal = ({ userData }: { userData: TUser }) => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <PWInput
-                          label={"Email"}
-                          name="email"
-                          type="email"
-                          placeholder="your@email.com"
-                          defaultValue={email}
-                          isDisabled={true}
-                        />
-                      </div>
+  <PWInput
+    label={"Email"}
+    name="email"
+    type="email"
+    placeholder="your@email.com"
+    defaultValue={email}
+    isDisabled={true} // Keep it disabled for the UI
+  />
+  {/* Hidden input to submit the email */}
+  <input type="hidden" name="email" value={email} />
+</div>
+
                       <div className="space-y-2">
                         <PWInput
                           placeholder="+1 (555) 000-0000"

@@ -80,27 +80,72 @@ const EditPostModal = ({ postId }: { postId: string }) => {
     setImagePreviews(updatedPreviews);
   };
 
+  // const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+  //   console.log(data);
+    
+  //   // const updatePostData = {
+  //   //   ...data,
+  //   //   content,
+  //   //   thumbnail: selectedProfilePicture
+  //   //     ? await uploadImageToFirebase(selectedProfilePicture)
+  //   //     : postData?.data?.thumbnail,
+  //   // };
+
+
+  //   // await handleUpdatePost({ postId, userData: updatePostData });
+
+  //   const formData= new FormData
+  //   const updatePostData = {
+  //     ...data,
+  //     content,
+   
+  //   };
+  //   formData.append("data", JSON.stringify(updatePostData));
+  //   images.forEach((image) => {
+  //     formData.append(`images`, image);
+  //   });
+
+  //   await handleUpdatePost({formData, postId,});
+
+  //   if (!updatePending) {
+  //     reset();
+  //     setPreviewUrl(null);
+  //     setContent("");
+  //     onOpenChange();
+  //   }
+  // };
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const formData= new FormData
+    console.log(data);
+    
+    // Prepare form data
+    const formData = new FormData();
+  
+    // If there's no new content provided, fallback to the previous content
     const updatePostData = {
       ...data,
-      content,
+      content: content || postData?.data?.content, // Use previous content if no new content is provided
     };
-    formData.append("data", JSON.stringify(postData));
+  
+    // Append other form data
+    formData.append("data", JSON.stringify(updatePostData));
+  
+    // Append images if any
     images.forEach((image) => {
       formData.append(`images`, image);
     });
-
-    await handleUpdatePost({ postId, userData: updatePostData });
-
+  
+    // Call the update post function
+    await handleUpdatePost({ formData, postId });
+  
+    // Reset form state if not pending
     if (!updatePending) {
       reset();
       setPreviewUrl(null);
-      setContent("");
-      onOpenChange();
+      setContent(""); // Clear content state
+      onOpenChange(); // Close the modal
     }
   };
-
+  
 
   return (
     <>

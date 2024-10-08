@@ -1,3 +1,4 @@
+
 // layout.tsx (Server Component)
 import Container from "@/components/shared/Container";
 import React, { ReactNode } from "react";
@@ -14,55 +15,49 @@ const layout = async ({ feed }: { children: ReactNode; feed: ReactNode }) => {
   const { data: premiumPosts } = await getPremiumPosts();
   const loggedUser = await getUserData();
 
+  // Extract premium status from loggedUser
+  const premium = loggedUser?.data?.premiumMember;
+
   return (
-    // <Container>
-    //   <div className="grid grid-cols-3 gap-10 my-5">
-    //     <main className="col-span-3 md:col-span-2">
-    //       <SearchFilter />
-    //       {feed}
-    //     </main>
-    //     <div className="hidden md:block col-span-1">
-    //       <SidebarWrapper
-    //         users={users}
-    //         userData={userData}
-    //         premiumPosts={premiumPosts.result}
-    //         premium={loggedUser?.data?.premiumMember}
-    //       />
-    //     </div>
-    //   </div>
-    // </Container>
-    <Container>
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 my-5">
-      
-      {/* Left Sidebar - visible on md and larger screens */}
-      <div className="hidden md:block col-span-1">
-        <RightSidebar/>
-      </div>
-      
-      {/* Main content */}
-      <main className="col-span-1 md:col-span-2">
-        <SearchFilter />
-        {feed}
-      </main>
-      
-      {/* Right Sidebar - visible on md and larger screens */}
-      <div className="hidden md:block col-span-1">
-      <SidebarWrapper
+    <Container>  
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-5 my-5">
+        
+        {/* Left Sidebar - visible on md and larger screens */}
+        <div className="hidden md:block col-span-1 ">
+         <div className="sticky top-20 scroll-my-1"> {/* Sticky wrapper for Sidebar */}
+         <RightSidebar 
+            users={users}
+            userData={userData}
+            premium={premium}
+            premiumPosts={premiumPosts.result} 
+          />
+         </div>
+        </div>
+        
+        {/* Main content */}
+        <main className="col-span-1 md:col-span-3">
+          <SearchFilter />
+          {feed}
+        </main>
+        
+        {/* Right Sidebar - visible on md and larger screens */}
+        <div className="hidden md:block col-span-2">
+          <SidebarWrapper
             users={users}
             userData={userData}
             premiumPosts={premiumPosts.result}
-            premium={loggedUser?.data?.premiumMember}
+            premium={premium} // Pass premium status here as well if needed
           />
+        </div>
+        
       </div>
-      
-    </div>
-  </Container>
+    </Container>
   );
 };
 
 const SidebarWrapper = ({ users, userData, premiumPosts, premium }: any) => {
   return (
-    <div className="sticky top-20 scroll-my-1">
+    <div className="sticky top-20 scroll-my-1 w-[80%]">
       <Sidebar
         users={users}
         userData={userData}

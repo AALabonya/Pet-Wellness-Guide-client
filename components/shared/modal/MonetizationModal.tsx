@@ -15,6 +15,7 @@ import {
   HeartIcon,
   IndianRupee,
   PawPrintIcon,
+  Ticket,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -37,58 +38,63 @@ export default function MonetizationModal({
 
   return (
     <>
+      <div className="bg-[#bc4124] shadow-lg text-white p-5 mt-4">
+    <h1>Be A Premium Member then get life time </h1>
       <Button
         onPress={onOpen}
-        className={`bg-[#bc4124] text-white ${className}`}
+        className={`mt-2 px-16 ${className}`}
         endContent={<BadgeCheck />}
       >
-        Premium Access
+       Unlock Premium Access
       </Button>
+      </div>
       <Modal size="3xl" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {() => (
-            <>
-              <ModalHeader className="flex  gap-1 items-center px-16 pt-4">
-                Premium Access <BadgeCheck />
-              </ModalHeader>
-              <ModalBody>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-10 px-10">
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">What you will get:</h3>
-                    <ul className="space-y-2">
-                      <li className="flex items-center">
-                        <PawPrintIcon className="mr-2 h-4 w-4" />
-                        Expert pet care tips
-                      </li>
-                      <li className="flex items-center">
-                        <HeartIcon className="mr-2 h-4 w-4" />
-                        Create premium your pet stories
-                      </li>
-                      <li className="flex items-center">
-                        <BookOpenIcon className="mr-2 h-4 w-4" />
-                        Access to premium posts
-                      </li>
-                    </ul>
-                    <div className="text-2xl font-bold">
-                      Only 1000 BDT/lifetime
-                    </div>
-                  </div>
-                  <div className="flex flex-col justify-center items-center space-y-4">
-                    <Button
-                      endContent={<IndianRupee />}
-                      className="w-full bg-green-400"
-                      size="lg"
-                      onClick={handlePayment}
-                    >
-                      {isPending ? <Spinner /> : "Pay Now 1000 BDT"}
-                    </Button>
-                    <p className="text-sm text-center text-muted-foreground">
-                      Secure payment powered by Amar Pay
-                    </p>
-                  </div>
+          <>
+          <ModalHeader className="flex gap-2 items-center px-16 pt-4 bg-gradient-to-r from-green-400 to-[#148d8c] text-white">
+            <BadgeCheck className="h-5 w-5 text-[#bc4124]" />
+            <h2 className="text-xl font-bold">Unlock Premium Access</h2>
+          </ModalHeader>
+          <ModalBody className="bg-white p-6 rounded-lg shadow-md">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-10">
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-gray-800">Benefits of Premium Membership:</h3>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-center">
+                    <PawPrintIcon className="mr-2 h-5 w-5 text-green-600" />
+                    <span>Expert pet care advice tailored for you</span>
+                  </li>
+                  <li className="flex items-center">
+                    <HeartIcon className="mr-2 h-5 w-5 text-red-600" />
+                    <span>Create and share premium pet stories with our community</span>
+                  </li>
+                  <li className="flex items-center">
+                    <BookOpenIcon className="mr-2 h-5 w-5 text-blue-600" />
+                    <span>Exclusive access to premium posts and resources</span>
+                  </li>
+                </ul>
+                <div className="text-xl font-bold text-gray-900">
+                  Join for just <span className="text-[#148d8c]">1000 BDT/lifetime</span>
                 </div>
-              </ModalBody>
-            </>
+              </div>
+              <div className="flex flex-col justify-center items-center space-y-4">
+                <Button
+                   endContent={<span>৳</span>}
+                  className="w-full bg-[#148d8c] hover:bg-[#148d8c] text-white"
+                  size="lg"
+                  onClick={handlePayment}
+                >
+                  {isPending ? <Spinner /> : "Pay Now - 1000 BDT"}
+                </Button>
+                <p className="text-sm text-center text-gray-500">
+                  Your payment is secured by Amar Pay
+                </p>
+              </div>
+            </div>
+          </ModalBody>
+        </>
+        
           )}
         </ModalContent>
       </Modal>

@@ -1,53 +1,80 @@
-# Next.js & NextUI Template
+## Pet Care Tips and Stories
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+# Introduction
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+Pet Care Tips and Stories is a platform for sharing insights and experiences related to pet care. Users can create and manage posts, with premium features for exclusive content. The website features two user roles: ADMIN and USER, each with distinct access levels. A robust authentication and authorization system allows users to interact socially through likes, comments, and follows.
 
-## Technologies Used
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+# Key features:
 
-## How to Use
+- Distinct access levels for ADMIN and USER, ensuring tailored experiences for each.
+- Robust authentication and authorization mechanisms for safe login and user verification.
+- Users have the ability to create, edit, and delete their own posts seamlessly.
+- Special posts available only to premium members, enhancing user engagement.
+- Users can like, comment, and share posts, fostering community interaction
+- Ability to follow other members to keep up with their latest posts and updates.
+- Search posts from the landing page.
+- Scroll through content with infinite scrolling.
+- Click on images to view detailed posts.
+- Implement Dark and light mood .
+- Implement Animation
+- Implement Amarpay Payment System
+- Implement Filter Options
+- PDF Export
+- Skeleton 
+- Implement React text Editor
 
-### Use the template with create-next-app
+# Technology Stack
 
-To create a new project based on this template using `create-next-app`, run the following command:
+- Next.js
+- Tanstack Query
+- Typescript
+- Farmer Motion
+- Lucid Icons
+- Next.ui
+- TailwindCSS
+- React Quill
+- Sonnar
+- Firebase
+- JSPDF
+- ZOD
+- React Hook Form
+- Moment.js
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
+## Installation Guideline
+
+# Installation Steps
+
+1. First Clone the project main branch
+
+```js
+https://github.com/AALabonya/Pet-Wellness-Guide-client.git
 ```
 
-### Install dependencies
+2. Open you terminal and change directory to the project directory
+3. Install all package are added in the package.json file
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
+```js
 npm install
 ```
 
-### Run the development server
+4. Then open the project in your code editor
+5. Create .env.local and past below url
+``js
+NEXT_PUBLIC_BASE_API=http://localhost:5000/api/v1
+NEXT_PUBLIC_BASE_URL=http://localhost:3000/
+``
 
-```bash
+7. Run the project your terminal
+
+```js
 npm run dev
 ```
 
-### Setup pnpm (optional)
+8. Deploy then first command
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
+```
+npm run build
 ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).

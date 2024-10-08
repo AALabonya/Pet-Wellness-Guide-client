@@ -9,7 +9,8 @@ const CreatePost = async () => {
   const userData = await currentUser();
   const currentUserData = await getUserData();
   return (
-    <div className="bg-white dark:bg-[#18181B] shadow-medium rounded-md p-3 flex gap-3">
+   <div className="flex-1">
+     <div className="bg-white dark:bg-[#18181B] shadow-medium rounded-md p-3 flex gap-3">
       <Avatar className="cursor-pointer" src={userData?.profilePicture} />
       {userData && (
         <CreatePostModal
@@ -17,8 +18,10 @@ const CreatePost = async () => {
           premiumMember={currentUserData?.data?.premiumMember}
         />
       )}
-      {!currentUserData?.data?.premiumMember && <MonetizationModal />}
+    
     </div>
+    <div className="flex justify-center">  {!currentUserData?.data?.premiumMember && <MonetizationModal />}</div>
+   </div>
   );
 };
 

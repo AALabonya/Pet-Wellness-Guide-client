@@ -16,7 +16,8 @@ import { Spinner } from "@nextui-org/spinner";
 import { useUser } from "@/context/user.provider";
 import { redirect, useRouter, useSearchParams } from "next/navigation";
 import ForgetPassword from "@/components/shared/modal/ForgetPassword";
-
+import { Player } from '@lottiefiles/react-lottie-player';
+import logo from "@/public/logo1.json";
 const Login = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -47,7 +48,12 @@ const Login = () => {
         <div className="bg-white rounded-lg shadow-xl overflow-hidden">
           <div className="p-6 sm:p-8">
             <div className="flex items-center justify-center mb-8">
-              <Logo />
+            <Player
+        autoplay
+        loop
+        src={logo}
+        className="w-[130px] z-10"
+      />
             </div>
             <h2 className="text-2xl font-semibold text-gray-700 text-center mb-6 uppercase">
               Welcome Back!

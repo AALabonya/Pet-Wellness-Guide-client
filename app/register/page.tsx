@@ -9,7 +9,8 @@ import { useRegistration } from "@/hooks/auth.hook";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import { Spinner } from "@nextui-org/spinner";
-
+import { Player } from '@lottiefiles/react-lottie-player';
+import logo from "@/public/logo1.json";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -115,7 +116,12 @@ const Register = () => {
           <div className="bg-white rounded-lg shadow-xl overflow-hidden">
             <div className="p-6 sm:p-8">
               <div className="flex items-center justify-center mb-8">
-                <Logo />
+              <Player
+        autoplay
+        loop
+        src={logo}
+        className="w-[130px] z-10"
+      />
               </div>
               <h2 className="text-2xl font-semibold text-gray-700 text-center mb-6">
                 Create an Account
@@ -233,3 +239,4 @@ const Register = () => {
 };
 
 export default Register;
+
