@@ -46,7 +46,7 @@ const PostCard: React.FC<PostCardProps> = ({
 
   return (
     <Card className="w-full">
-      <CardHeader className="justify-between">
+      <CardHeader className="lg:justify-between justify-left md:flex-row">
         <div className="flex gap-5">
           <Avatar
             isBordered
@@ -54,7 +54,7 @@ const PostCard: React.FC<PostCardProps> = ({
             size="md"
             src={userId?.profilePicture}
           />
-          <div className="flex flex-col gap-1 items-start justify-center">
+          <div className="flex flex-col gap-1 items-start lg:justify-center">
             <h4 className="text-small font-semibold leading-none text-default-600">
               {userId?.name}
             </h4>
@@ -77,8 +77,8 @@ const PostCard: React.FC<PostCardProps> = ({
                   : "#"
           }
         >
-<div className="flex justify-between items-center">
-<h2 className="text-black dark:text-white mb-3 text-lg">{title}</h2>
+<div className="flex flex-col-reverse md:flex-row justify-left  lg:justify-between lg:items-center">
+<h2 className="text-black dark:text-white mb-3 text-[14px]  md:text-lg">{title}</h2>
   {isPremium && (
     <div className="flex gap-2 items-center">
       <BadgeCheck className="text-[#bc4124]" />
@@ -91,15 +91,12 @@ const PostCard: React.FC<PostCardProps> = ({
           <span className="py-2 flex gap-2 flex-col">
             <ContentPost details={details} content={content} />
            </span>
+           <Code className="mt-1">Category: {category}</Code>
           {thumbnail && Array.isArray(thumbnail) && thumbnail.length > 0 && (
    <ImageGallery thumbnail={thumbnail} />
  )}
 
-          <Code className="mt-1">Category: {category}</Code>
-{/* 
-          <span className="py-2 flex gap-2 flex-col">
-            <ContentPost details={details} content={content} />
-          </span> */}
+        
         </Link>
 
         <div>

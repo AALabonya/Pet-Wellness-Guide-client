@@ -16,7 +16,7 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/modal";
-import { Edit2, X } from "lucide-react";
+import { Edit, X } from "lucide-react";
 import React, { useRef, useState } from "react";
 import {
   FieldValues,
@@ -151,7 +151,7 @@ const EditPostModal = ({ postId }: { postId: string }) => {
     <>
       <Button
         isIconOnly
-        startContent={<Edit2 className="w-5" />}
+        startContent={<Edit className="w-5" />}
         onPress={onOpen}
       ></Button>
       <Modal size="3xl" isOpen={isOpen} onOpenChange={onOpenChange}>

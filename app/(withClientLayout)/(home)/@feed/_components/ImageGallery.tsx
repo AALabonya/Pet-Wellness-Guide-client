@@ -18,7 +18,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ thumbnail }) => {
   };
 
   return (
-    <div className="p-4">
+    <div className="">
       {/* Thumbnail Grid */}
       <div
         className={`grid ${
@@ -29,7 +29,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ thumbnail }) => {
             : thumbnail.length === 3
             ? "grid-cols-2 md:grid-cols-3"
             : "grid-cols-2 md:grid-cols-4"
-        } my-4`}
+        } my-2`}
       >
         {thumbnail.slice(0, 3).map((image, idx) => (
           <Image

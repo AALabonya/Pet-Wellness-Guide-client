@@ -57,7 +57,7 @@ const layout = async ({ feed }: { children: ReactNode; feed: ReactNode }) => {
 
 const SidebarWrapper = ({ users, userData, premiumPosts, premium }: any) => {
   return (
-    <div className="sticky top-20 scroll-my-1 w-[80%]">
+    <div className="sticky top-20 scroll-my-1 w-[90%]">
       <Sidebar
         users={users}
         userData={userData}

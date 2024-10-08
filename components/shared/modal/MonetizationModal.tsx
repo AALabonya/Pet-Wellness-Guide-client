@@ -42,7 +42,7 @@ export default function MonetizationModal({
     <h1>Be A Premium Member then get life time </h1>
       <Button
         onPress={onOpen}
-        className={`mt-2 px-16 ${className}`}
+        className={`mt-2 lg:px-16 ${className}`}
         endContent={<BadgeCheck />}
       >
        Unlock Premium Access
@@ -52,31 +52,28 @@ export default function MonetizationModal({
         <ModalContent>
           {() => (
           <>
-          <ModalHeader className="flex gap-2 items-center px-16 pt-4 bg-gradient-to-r from-green-400 to-[#148d8c] text-white">
+          <ModalHeader className="flex gap-2 justify-center px-16 pt-4 bg-gradient-to-r from-green-400 to-[#148d8c] text-white">
             <BadgeCheck className="h-5 w-5 text-[#bc4124]" />
-            <h2 className="text-xl font-bold">Unlock Premium Access</h2>
+            <h2 className="text-xl font-bold text-center">Unlock Premium Package</h2>
           </ModalHeader>
-          <ModalBody className="bg-white p-6 rounded-lg shadow-md">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-10">
+          <ModalBody className="bg-white p-6 rounded-lg shadow-md flex justify-center">
+            <div className="grid grid-cols-1 gap-6 pb-2">
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800">Benefits of Premium Membership:</h3>
+                <h3 className="text-lg font-semibold text-center text-gray-800">Benefits of Premium Membership:</h3>
                 <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-center">
+                  <li className="flex justify-center">
                     <PawPrintIcon className="mr-2 h-5 w-5 text-green-600" />
                     <span>Expert pet care advice tailored for you</span>
                   </li>
-                  <li className="flex items-center">
+                  <li className="flex justify-center">
                     <HeartIcon className="mr-2 h-5 w-5 text-red-600" />
                     <span>Create and share premium pet stories with our community</span>
                   </li>
-                  <li className="flex items-center">
+                  <li className="flex justify-center">
                     <BookOpenIcon className="mr-2 h-5 w-5 text-blue-600" />
                     <span>Exclusive access to premium posts and resources</span>
                   </li>
                 </ul>
-                <div className="text-xl font-bold text-gray-900">
-                  Join for just <span className="text-[#148d8c]">1000 BDT/lifetime</span>
-                </div>
               </div>
               <div className="flex flex-col justify-center items-center space-y-4">
                 <Button
@@ -87,9 +84,7 @@ export default function MonetizationModal({
                 >
                   {isPending ? <Spinner /> : "Pay Now - 1000 BDT"}
                 </Button>
-                <p className="text-sm text-center text-gray-500">
-                  Your payment is secured by Amar Pay
-                </p>
+             
               </div>
             </div>
           </ModalBody>

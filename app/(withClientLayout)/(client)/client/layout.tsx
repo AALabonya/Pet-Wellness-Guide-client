@@ -3,13 +3,14 @@
 import React from "react";
 
 import {
-  HomeIcon,
   UsersIcon,
   MenuIcon,
   XIcon,
-  TableOfContents,
-  CreditCard,
   FileText,
+  Home,
+  Table,
+
+  User2,
 } from "lucide-react";
 import { Link } from "@nextui-org/link";
 import { Card } from "@nextui-org/card";
@@ -28,10 +29,10 @@ export default function ClientLayout({
   const closeSidebar = () => setIsSidebarOpen(false);
 
   const menuItems = [
-    { name: "Dashboard", icon: <HomeIcon size={20} />, href: "/client" },
+    { name: "Dashboard", icon: <Home size={20} />, href: "/client" },
     {
       name: "My Posts",
-      icon: <TableOfContents size={20} />,
+      icon: <Table size={20} />,
       href: "/client/posts",
     },
     {
@@ -41,7 +42,7 @@ export default function ClientLayout({
     },
     {
       name: "Followers",
-      icon: <CreditCard size={20} />,
+      icon: <User2 size={20} />,
       href: "/client/followers",
     },
     {

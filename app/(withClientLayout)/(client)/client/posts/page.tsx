@@ -67,7 +67,7 @@ const MyPosts = () => {
           <TableColumn>Title</TableColumn>
           <TableColumn>User</TableColumn>
           <TableColumn>Premium</TableColumn>
-          <TableColumn>Status</TableColumn>
+        
           <TableColumn>Category</TableColumn>
           <TableColumn>Likes</TableColumn>
           <TableColumn>Action</TableColumn>
@@ -106,13 +106,11 @@ const MyPosts = () => {
                      size={20}
                    />
                  ) : (
-                   "Regular"
+                   "Normal"
                  )}
                </Badge>
                </TableCell>
-                <TableCell>
-                  <span>{isPremium ? "Premium" : "Regular"}</span>
-                </TableCell>
+              
                 <TableCell>{category}</TableCell>
                 <TableCell>{likes}</TableCell>
                 <TableCell className="flex gap-2 items-center">

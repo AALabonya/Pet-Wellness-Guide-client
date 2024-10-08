@@ -33,9 +33,9 @@ const ContentPost = ({
   };
 
   return (
-    <div>
+    <div className="text-[14px] md:text-lg">
       <div
-        className="prose"
+        className="prose "
         dangerouslySetInnerHTML={{ __html: getDisplayContent() || "" }}
       />
       {/* Conditionally render "See More"/"See Less" button based on content length */}
