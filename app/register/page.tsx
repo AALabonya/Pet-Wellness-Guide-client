@@ -132,7 +132,7 @@ const Register = () => {
                     className="block cursor-pointer bg-gray-100 hover:bg-gray-200 text-center py-2 rounded-lg border border-gray-300"
                     htmlFor="image"
                   >
-                    Upload Profile Picture (Optional)
+                    Upload Image
                   </label>
                   <input
                     className="hidden"

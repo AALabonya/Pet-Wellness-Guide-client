@@ -38,7 +38,7 @@ export default function ForgetPassword() {
           {() => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                Modal Title
+              
               </ModalHeader>
               <ModalBody>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -63,9 +63,9 @@ export default function ForgetPassword() {
                       </p>
                     )}
                   </div>
-                  <Button color="primary" type="submit">
+                 <div className="flex justify-center"> <Button color="primary" type="submit" >
                     Send Reset Link
-                  </Button>
+                  </Button></div>
                 </form>
               </ModalBody>
             </>

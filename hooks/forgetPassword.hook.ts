@@ -12,7 +12,7 @@ export const useForgetPassword = () => {
     },
     onError: (error: any) => {
       console.log(error);
-      toast.error("Follow failed");
+      toast.error("Reset Link send failed");
     },
   });
 };

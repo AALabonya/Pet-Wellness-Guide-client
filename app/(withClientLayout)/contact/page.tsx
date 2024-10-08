@@ -1,6 +1,7 @@
 "use client";
-import PWInput from "@/components/form/PWInput";
-import PWTextarea from "@/components/form/PWTextarea";
+
+import PetInput from "@/components/form/PetInput";
+import PetTextarea from "@/components/form/PetTextarea";
 import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Spinner } from "@nextui-org/spinner";
@@ -74,9 +75,9 @@ const Contact = () => {
         <div className="mt-10">
           <FormProvider {...methods}>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <PWInput name="name" label="Your Name" required />
-              <PWInput name="email" label="Your Email" type="email" required />
-              <PWTextarea name="message" label="Your Message" required />
+              <PetInput name="name" label="Your Name" required />
+              <PetInput name="email" label="Your Email" type="email" required />
+              <PetTextarea name="message" label="Your Message" required />
               <Button
                 type="submit"
          
