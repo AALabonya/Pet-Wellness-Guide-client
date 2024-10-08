@@ -50,6 +50,16 @@ export const siteConfig: {
       href: "/contact",
       icon: Mail,
     },
+    {
+      label: "Registration",
+      href: "/register",
+      icon: Info,
+    },
+    {
+      label: "Login",
+      href: "/login",
+      icon: Mail,
+    },
   ],
 };
 

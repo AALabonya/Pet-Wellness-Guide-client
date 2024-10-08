@@ -3,15 +3,13 @@
 import React from "react";
 
 import {
-  HomeIcon,
-  BarChartIcon,
-  UsersIcon,
-  SettingsIcon,
-  MenuIcon,
   XIcon,
-  TableOfContents,
-  CreditCard,
-  FileText,
+  MenuIcon,
+  File,
+  Home,
+  Table,
+  User,
+  DollarSign,
 } from "lucide-react";
 import { Link } from "@nextui-org/link";
 import { Card } from "@nextui-org/card";
@@ -30,17 +28,17 @@ export default function DashboardLayout({
   const closeSidebar = () => setIsSidebarOpen(false);
 
   const menuItems = [
-    { name: "Dashboard", icon: <HomeIcon size={20} />, href: "/admin" },
+    { name: "Dashboard", icon: <Home size={20} />, href: "/admin" },
     {
       name: "Content",
-      icon: <TableOfContents size={20} />,
+      icon: <Table size={20} />,
       href: "/admin/content",
     },
-    { name: "Users", icon: <UsersIcon size={20} />, href: "/admin/users" },
-    { name: "Payment", icon: <CreditCard size={20} />, href: "/admin/payment" },
+    { name: "Users", icon: <User size={20} />, href: "/admin/users" },
+    { name: "Payment", icon: <DollarSign size={20} />, href: "/admin/payment" },
     {
       name: "Generate PDF",
-      icon: <FileText size={20} />,
+      icon: <File size={20} />,
       href: "/admin/pdf",
     },
   ];

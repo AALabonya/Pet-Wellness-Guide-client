@@ -8,7 +8,7 @@ import { TPost } from "@/types/post.interface";
 import { Avatar } from "@nextui-org/avatar";
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
-import { MapPinHouse, Phone, ShieldQuestion } from "lucide-react";
+import { Locate, LucideBadgeCheck,LucideMail, Phone,  User2, UserCheck2 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -19,6 +19,7 @@ const ProfilePage = async () => {
   const { data: myPosts } = await axiosInstance.get(`/posts/me`);
   const userInfo = await getUserData();
   const userData = await currentUser();
+
 
   return (
     <Container>
@@ -38,7 +39,7 @@ const ProfilePage = async () => {
           }
         />
       </div>
-
+      
       <div className="my-5">
         <div className="flex justify-between items-center mb-5">
           <div className="flex items-center gap-2">
@@ -47,10 +48,18 @@ const ProfilePage = async () => {
               src={userInfo?.data?.profilePicture}
             />
             <div>
-              <h1 className="font-bold text-2xl">{userInfo?.data?.name}</h1>
-              <p>{userInfo?.data?.email}</p>
-              <h3>{followersCount?.data?.followerCount} followers</h3>
-              <h3>{followersCount?.data?.followingCount} following</h3>
+              <h1 className="font-bold text-2xl">{userInfo?.data?.name} {userInfo?.data?.premiumMember && (
+    <LucideBadgeCheck className="inline text-blue-500 ml-2" size={20} />
+  )} </h1>
+              <p> <LucideMail className="inline" size={18} /> {userInfo?.data?.email}</p>
+              <div className="flex flex-wrap items-center md:justify-start text-gray-600 py-1.5">
+              <span className="">
+              {followersCount?.data?.followerCount} Followers
+              </span>
+              <span className="mx-2">•</span>
+              <span>{followersCount?.data?.followingCount} following</span>
+            </div>
+             
             </div>
           </div>
 
@@ -69,12 +78,16 @@ const ProfilePage = async () => {
                   <span>{userInfo?.data?.phone}</span>
                 </div>
                 <div className="flex gap-2 items-center">
-                  <MapPinHouse />
+                  <Locate />
                   <span>{userInfo?.data?.address}</span>
                 </div>
                 <div className="flex gap-2 items-center">
-                  <ShieldQuestion />
+                  <UserCheck2/>
                   <span>{userInfo?.data?.gender}</span>
+                </div>
+                <div className="flex gap-2 items-center">
+                <User2 />
+                  <span>{userInfo?.data?.role}</span>
                 </div>
               </CardBody>
             </Card>
@@ -83,7 +96,7 @@ const ProfilePage = async () => {
               <CardHeader>Followed Users</CardHeader>
               <CardBody className="flex flex-col gap-2">
                 {data?.data.length < 1 ? (
-                  <h3>No Followed users</h3>
+                  <h3>No followed users yet!</h3>
                 ) : (
                   data?.data?.map(
                     ({
@@ -106,10 +119,10 @@ const ProfilePage = async () => {
             </Card>
 
             <Card className="my-5">
-              <CardHeader>Followers Users</CardHeader>
+              <CardHeader> Followers Users</CardHeader>
               <CardBody className="flex flex-col gap-2">
                 {followersData?.data.length < 1 ? (
-                  <h3>No followers</h3>
+                  <h3>No followers yet!</h3>
                 ) : (
                   followersData?.data?.map(
                     ({

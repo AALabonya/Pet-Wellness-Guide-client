@@ -9,7 +9,7 @@ const Container = ({
 }) => {
   return (
     <div
-      className={`container flex justify-center mx-auto max-w-7xl lg:px-6`}
+      className={`container  mx-auto max-w-7xl lg:px-6`}
     >
       {children}
     </div>

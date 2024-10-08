@@ -14,8 +14,7 @@ import { Avatar } from "@nextui-org/avatar";
 import { Skeleton } from "@nextui-org/skeleton";
 import { Pagination } from "@nextui-org/pagination";
 import { Badge } from "@nextui-org/badge";
-import { BadgeCheck, Delete, Trash2 } from "lucide-react";
-import { Button } from "@nextui-org/button";
+import { BadgeCheck } from "lucide-react";
 import DeletePostModal from "@/components/shared/modal/DeletePostModal";
 import CreatePostModal from "@/components/shared/modal/CreatePostModal";
 import { useUser } from "@/context/user.provider";
@@ -24,7 +23,7 @@ const ContentPage = () => {
   const [posts, setPosts] = useState<TPost[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState();
+  const [totalPages, setTotalPages] = useState<number>(0);
   const user = useUser();
 
   useEffect(() => {
@@ -93,34 +92,32 @@ const ContentPage = () => {
                 </TableCell>
                 <TableCell>{title}</TableCell>
                 <TableCell className="flex gap-2 items-center">
-                  <Badge
-                    content={
-                      userId?.premiumMember ? (
-                        <BadgeCheck
-                          className="bg-primary rounded-full"
-                          size={20}
-                        />
-                      ) : (
-                        "Regular"
-                      )
+                  <Avatar
+                    src={
+                      typeof userId?.profilePicture === "string"
+                        ? userId?.profilePicture
+                        : ""
                     }
-                    className="py-1"
-                    color="primary"
-                    size="sm"
-                  >
-                    <Avatar
-                      src={
-                        typeof userId?.profilePicture === "string"
-                          ? userId?.profilePicture
-                          : ""
-                      }
-                    />
-                  </Badge>
+                  />
                   <h3>{userId?.name}</h3>
                 </TableCell>
                 <TableCell>
-                  <span>{isPremium ? "Premium" : "Regular"}</span>
-                </TableCell>
+  <Badge
+    className="py-1"
+    color={userId?.premiumMember ? "primary" : "default"}
+    size="sm"
+  >
+    {userId?.premiumMember ? (
+      <>
+        <BadgeCheck className="bg-primary rounded-full" size={20} />
+        Premium
+      </>
+    ) : (
+      "Normal"
+    )}
+  </Badge>
+</TableCell>
+
                 <TableCell>{category}</TableCell>
                 <TableCell>{likes}</TableCell>
                 <TableCell>

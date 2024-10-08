@@ -22,7 +22,8 @@ const Users = () => {
   const [users, setUsers] = useState<TUser[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState();
+  const [totalPages, setTotalPages] = useState<number | undefined>();
+  
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -59,12 +60,13 @@ const Users = () => {
     <div className="p-4">
       <Table aria-label="Example static collection table">
         <TableHeader>
-          <TableColumn>Image</TableColumn>
+          <TableColumn>Avatar</TableColumn>
           <TableColumn>Name</TableColumn>
+          <TableColumn>Email</TableColumn>
           <TableColumn>Phone Number</TableColumn>
-          <TableColumn>Status</TableColumn>
           <TableColumn>Role</TableColumn>
           <TableColumn>Gender</TableColumn>
+          <TableColumn>Status</TableColumn>
           <TableColumn>Action</TableColumn>
         </TableHeader>
         <TableBody>
@@ -80,34 +82,37 @@ const Users = () => {
               gender,
             }: TUser) => (
               <TableRow key={_id}>
-                <TableCell className="flex gap-2 items-center">
-                  <Badge
-                    content={
-                      premiumMember ? (
-                        <BadgeCheck
-                          className="bg-primary rounded-full"
-                          size={20}
-                        />
-                      ) : (
-                        "Regular"
-                      )
+                {/* Avatar */}
+                <TableCell>
+                  <Avatar
+                    src={
+                      typeof profilePicture === "string"
+                        ? profilePicture
+                        : ""
                     }
-                    className="py-1"
-                    color="primary"
-                    size="sm"
-                  >
-                    <Avatar
-                      src={
-                        typeof profilePicture === "string" ? profilePicture : ""
-                      }
-                    />
-                  </Badge>
+                    size="lg"
+                  />
                 </TableCell>
+
+                {/* User Information */}
                 <TableCell>{name}</TableCell>
                 <TableCell>{email}</TableCell>
                 <TableCell>{phone}</TableCell>
                 <TableCell>{role}</TableCell>
                 <TableCell>{gender}</TableCell>
+
+                {/* Badge in a separate column */}
+                <TableCell>
+                  <Badge color="primary" size="lg">
+                    {premiumMember ? (
+                      <BadgeCheck className="text-[#bc4124]  rounded-full" size={20} />
+                    ) : (
+                      "Normal"
+                    )}
+                  </Badge>
+                </TableCell>
+
+                {/* Action */}
                 <TableCell>
                   <DeleteUserModal userId={_id} />
                 </TableCell>

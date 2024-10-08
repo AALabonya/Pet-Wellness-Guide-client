@@ -35,7 +35,7 @@ export default function ProfileDropdown() {
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem key="new">
-          <Link href="/profile">Profile</Link>
+          <a href="/profile">Profile</a>
         </DropdownItem>
         <DropdownItem key="new">
           {user?.role === "admin" ? (
@@ -47,8 +47,7 @@ export default function ProfileDropdown() {
         <DropdownItem
           onClick={handleLogout}
           key="delete"
-          className="text-danger"
-          color="danger"
+          className="text-primaryNav"
         >
           Logout
         </DropdownItem>

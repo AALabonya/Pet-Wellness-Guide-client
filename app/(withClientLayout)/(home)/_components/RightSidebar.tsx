@@ -29,7 +29,7 @@ const RightSidebar = ({
             }}
           >
             <Image
-              src={userData?.profilePicture || "https://example.com/default-image.jpg"}
+              src={userData?.profilePicture || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
               alt="user"
               width={70}
               height={70}
@@ -37,7 +37,7 @@ const RightSidebar = ({
             />
             <div className="flex justify-end mr-4 mt-4 pt-9">
               <div>
-                <h5 className="text-xl pt-6 px-2">
+                <h5 className="text-[14px] pt-6 px-2">
                   <Link href="/" className="text-white">
                     {userData?.name || "User Name"}
                   </Link>
