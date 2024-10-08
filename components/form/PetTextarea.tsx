@@ -6,7 +6,7 @@ import { useFormContext } from "react-hook-form";
 interface IProps extends IInput {}
 
 
-const PWTextarea = ({
+const PetTextarea = ({
     variant = "bordered",
     size = "md",
     required = false,
@@ -32,4 +32,4 @@ const PWTextarea = ({
 );
 };
 
-export default PWTextarea;
+export default PetTextarea;

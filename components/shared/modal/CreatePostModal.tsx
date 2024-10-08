@@ -24,11 +24,11 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import PWInput from "@/components/form/PWInput";
 import Image from "next/image";
 import { usePost } from "@/hooks/post.hook";
-import PWSelect from "@/components/form/PWSelect";
 import { Spinner } from "@nextui-org/spinner";
+import PetSelect from "@/components/form/PetSelect";
+import PetInput from "@/components/form/PetInput";
 
 const CreatePostModal = ({
   userId,
@@ -135,7 +135,7 @@ const [imagePreviews, setImagePreviews] = useState<string[]>([]);
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid grid-cols-2 gap-2">
                       <div className="space-y-2">
-                        <PWSelect
+                        <PetSelect
                           label="Category"
                           name="category"
                           options={[
@@ -146,7 +146,7 @@ const [imagePreviews, setImagePreviews] = useState<string[]>([]);
                       </div>
                       {premiumMember && (
                         <div className="space-y-2">
-                          <PWSelect
+                          <PetSelect
                             label="Premium Status"
                             name="isPremium"
                             options={[
@@ -158,7 +158,7 @@ const [imagePreviews, setImagePreviews] = useState<string[]>([]);
                       )}
                     </div>
                     <div className="space-y-2">
-                      <PWInput
+                      <PetInput
                         type="text"
                         placeholder="Enter you title"
                         label="Title"

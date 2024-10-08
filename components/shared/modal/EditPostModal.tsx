@@ -24,11 +24,13 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import PWInput from "@/components/form/PWInput";
+
 import Image from "next/image";
 import { useGetPost, useUpdatePost } from "@/hooks/post.hook";
-import PWSelect from "@/components/form/PWSelect";
+
 import { Spinner } from "@nextui-org/spinner";
+import PetSelect from "@/components/form/PetSelect";
+import PetInput from "@/components/form/PetInput";
 
 const EditPostModal = ({ postId }: { postId: string }) => {
   const { mutate: handleUpdatePost, isPending: updatePending } =
@@ -165,7 +167,7 @@ const EditPostModal = ({ postId }: { postId: string }) => {
                 <FormProvider {...methods}>
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="space-y-2">
-                      <PWSelect
+                      <PetSelect
                         label="Category"
                         name="category"
                         options={[
@@ -176,7 +178,7 @@ const EditPostModal = ({ postId }: { postId: string }) => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <PWInput
+                      <PetInput
                         type="text"
                         placeholder="Enter you title"
                         label="Title"

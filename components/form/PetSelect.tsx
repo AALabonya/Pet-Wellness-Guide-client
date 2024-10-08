@@ -10,7 +10,7 @@ interface IProps extends IInput {
   }[];
 }
 
-const PWSelect = ({
+const PetSelect = ({
   variant = "bordered",
   name,
   label,
@@ -41,4 +41,4 @@ const PWSelect = ({
   );
 };
 
-export default PWSelect;
+export default PetSelect;

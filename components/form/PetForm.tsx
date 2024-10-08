@@ -13,7 +13,7 @@ export interface IPWFormProps extends IFormConfig {
   onSubmit: SubmitHandler<any>;
 }
 
-const PWForm = ({
+const PetForm = ({
   children,
   onSubmit,
   defaultValues,
@@ -36,4 +36,4 @@ const PWForm = ({
   );
 };
 
-export default PWForm;
+export default PetForm;

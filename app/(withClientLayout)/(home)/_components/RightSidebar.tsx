@@ -31,9 +31,9 @@ const RightSidebar = ({
             <Image
               src={userData?.profilePicture || "https://example.com/default-image.jpg"}
               alt="user"
-              width={80}
-              height={80}
-              className="left-4 -top-10 z-10 absolute rounded-full h-[80px] w-[80px] border-[7px] border-white object-cover object-top"
+              width={70}
+              height={70}
+              className="left-4 -top-10 z-10 absolute rounded-full h-[70px] w-[70px] border-[7px] border-white object-cover object-top"
             />
             <div className="flex justify-end mr-4 mt-4 pt-9">
               <div>

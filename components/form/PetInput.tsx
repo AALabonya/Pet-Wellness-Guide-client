@@ -7,7 +7,7 @@ import { useFormContext } from "react-hook-form";
 
 
 interface IProps extends IInput {}
-const PWInput = ({
+const PetInput = ({
   variant = "bordered",
   size = "md",
   required = false,
@@ -40,4 +40,4 @@ const PWInput = ({
   );
 };
 
-export default PWInput;
+export default PetInput;

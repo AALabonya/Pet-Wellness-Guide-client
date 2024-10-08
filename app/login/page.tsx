@@ -10,7 +10,7 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import PWInput from "@/components/form/PWInput";
+
 import { useLogin } from "@/hooks/auth.hook";
 import { Spinner } from "@nextui-org/spinner";
 import { useUser } from "@/context/user.provider";
@@ -18,6 +18,7 @@ import { redirect, useRouter, useSearchParams } from "next/navigation";
 import ForgetPassword from "@/components/shared/modal/ForgetPassword";
 import { Player } from '@lottiefiles/react-lottie-player';
 import logo from "@/public/logo1.json";
+import PetInput from "@/components/form/PetInput";
 const Login = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -61,7 +62,7 @@ const Login = () => {
             <FormProvider {...methods}>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="space-y-2">
-                  <PWInput
+                  <PetInput
                     name="email"
                     type="email"
                     placeholder="your@email.com"
@@ -70,7 +71,7 @@ const Login = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <PWInput
+                  <PetInput
                     label="Password"
                     name="password"
                     type="password"

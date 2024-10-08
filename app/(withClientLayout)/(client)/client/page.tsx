@@ -8,7 +8,7 @@ const page = async () => {
     <div
       className="h-screen flex items-center justify-center"
       style={{
-        backgroundImage: 'url("https://img.freepik.com/free-photo/still-life-pet-food-arrangement_23-2148982354.jpg?t=st=1728392222~exp=1728395822~hmac=16c6c005231c0563d8765e74c8ebdf964dda00da5f20db7011e782a364cdedf4&w=900")',
+        backgroundImage: 'url("https://img.freepik.com/premium-photo/arafed-man-lab-coat-looking-computer-screen-with-cat-generative-ai_1035439-2044.jpg?w=826")',
         backgroundSize: 'cover', // Make sure the background image covers the entire div
         backgroundPosition: 'center', // Center the background image
       }}

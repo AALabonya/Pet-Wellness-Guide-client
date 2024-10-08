@@ -33,13 +33,13 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import PWInput from "@/components/form/PWInput";
 import Image from "next/image";
-import PWSelect from "@/components/form/PWSelect";
-import PWTextarea from "@/components/form/PWTextarea";
 import { TUser } from "@/types";
 import { useUpdateProfile } from "@/hooks/auth.hook";
 import { Spinner } from "@nextui-org/spinner";
+import PetInput from "@/components/form/PetInput";
+import PetTextarea from "@/components/form/PetTextarea";
+import PetSelect from "@/components/form/PetSelect";
 
 const EditProfileModal = ({ userData }: { userData: TUser }) => {
   const { name, address, gender, email, profilePicture, phone } = userData;
@@ -204,7 +204,7 @@ const onSubmit: SubmitHandler<FieldValues> = async (data) => {
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <PWInput
+                        <PetInput
                           name={"name"}
                           label={"Name"}
                           placeholder="Enter your name"
@@ -213,7 +213,7 @@ const onSubmit: SubmitHandler<FieldValues> = async (data) => {
                         />
                       </div>
                       <div className="space-y-2">
-  <PWInput
+  <PetInput
     label={"Email"}
     name="email"
     type="email"
@@ -226,7 +226,7 @@ const onSubmit: SubmitHandler<FieldValues> = async (data) => {
 </div>
 
                       <div className="space-y-2">
-                        <PWInput
+                        <PetInput
                           placeholder="+1 (555) 000-0000"
                           label={"Phone Number"}
                           name="phone"
@@ -235,7 +235,7 @@ const onSubmit: SubmitHandler<FieldValues> = async (data) => {
                         />
                       </div>
                       <div className="space-y-2 md:col-span-2">
-                        <PWTextarea
+                        <PetTextarea
                           label={"Address"}
                           placeholder="Enter your address"
                           name="address"
@@ -244,7 +244,7 @@ const onSubmit: SubmitHandler<FieldValues> = async (data) => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <PWSelect
+                        <PetSelect
                           label="Gender"
                           name="gender"
                           defaultValue={gender}
