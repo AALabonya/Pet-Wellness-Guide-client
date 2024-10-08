@@ -22,24 +22,24 @@ Pet Care Tips and Stories is a platform for sharing insights and experiences rel
 - Implement Filter Options
 - PDF Export
 - Skeleton 
-- Implement React text Editor
-
+- Implement React Quill Text Editor
+- Using Cloudinary for image management
 # Technology Stack
 
 - Next.js
-- Tanstack Query
 - Typescript
-- Farmer Motion
-- Lucid Icons
 - Next.ui
 - TailwindCSS
-- React Quill
+- Tanstack Query
+- Farmer Motion
+- Lucid React Icons
+- React Quill Editor
+- React Hook Form
 - Sonnar
-- Firebase
+- Cloudinary
+- Moment.js
 - JSPDF
 - ZOD
-- React Hook Form
-- Moment.js
 
 ## Installation Guideline
 
