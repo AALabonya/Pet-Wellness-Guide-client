@@ -61,6 +61,7 @@ export const siteConfig: {
       icon: Mail,
     },
   ],
+
 };
 
 // Export the type of siteConfig for use elsewhere

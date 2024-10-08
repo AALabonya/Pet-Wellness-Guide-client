@@ -1,5 +1,5 @@
 const envConfig = {
-  baseApi: process.env.NEXT_PUBLIC_BASE_API,
+  baseApi: process.env.BASE_URL,
   baseClient: process.env.NEXT_PUBLIC_BASE_URL,
 };
 
