@@ -36,14 +36,12 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <NextUINavbar
-      maxWidth="xl"
-      position="sticky"
-      className="dark:bg-[#18181B] bg-primaryNav"
-    >
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-      <NavbarBrand as="li" className="relative gap-3 max-w-fit">
-  <NextLink className="flex justify-center items-center" href="/">
+<NextUINavbar className="fixed bg-primaryNav" maxWidth="xl">
+{/* <!-- Brand & Toggle --> */}
+<NavbarContent>
+  <NavbarMenuToggle className="sm:hidden" />
+  <NavbarBrand>
+    <Link className="flex items-center gap-1" href="/">
     <div className="relative">
       <p className="absolute text-white inset-0 flex items-center mr-8 ml-8 justify-center font-bold text-inherit z-0">
         Pet......Care
@@ -55,37 +53,32 @@ export const Navbar = () => {
         className="w-[130px] z-10"
       />
     </div>
-  </NextLink>
-</NavbarBrand>
-<ul className="hidden lg:flex gap-4 justify-end ml-2 w-full">
-  {siteConfig.navItems.map((item) => (
+    </Link>
+  </NavbarBrand>
+</NavbarContent>
+
+{/* <!-- Center Navigation --> */}
+<NavbarContent className="hidden sm:flex gap-4" justify="center">
+{siteConfig.navItems.map((item) => (
     <NavbarItem key={item.href}>
-      <NextLink className="text-white flex items-center gap-2" href={item.href}>
+      <NextLink className="text-white flex items-center gap-1" href={item.href}>
         <item.icon className="w-5 h-5" /> {/* Render the Lucide icon */}
         {item.label} {/* Display the label */}
       </NextLink>
     </NavbarItem>
   ))}
-</ul>
+</NavbarContent>
 
+{/* <!-- Right Side --> */}
+<NavbarContent justify="end">
+  <NavbarItem>
+    <ThemeSwitch />
+  </NavbarItem>
+  <AuthDynamic />
+</NavbarContent>
 
-
-      </NavbarContent>
-
-      <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
-        <NavbarItem className="hidden sm:flex gap-2">
-          <ThemeSwitch />
-        </NavbarItem>
-        <AuthDynamic />
-      </NavbarContent>
-
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <ThemeSwitch />
-        <NavbarMenuToggle />
-        <AuthDynamic />
-      </NavbarContent>
-
-      <NavbarMenu>
+{/* <!-- Mobile Menu --> */}
+<NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2 text-white">
           {navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
@@ -106,6 +99,7 @@ export const Navbar = () => {
           ))}
         </div>
       </NavbarMenu>
-    </NextUINavbar>
+</NextUINavbar>
   );
 };
+

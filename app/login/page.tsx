@@ -44,7 +44,7 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-green-100 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen  flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-lg shadow-xl overflow-hidden">
           <div className="p-6 sm:p-8">
@@ -77,6 +77,9 @@ const Login = () => {
                     type="password"
                     required
                   />
+                    <div className="mt-4 text-center">
+             <ForgetPassword />
+            </div>
                 </div>
                 <Button
                   className="w-full bg-primary hover:bg-primaryLight"
@@ -86,9 +89,7 @@ const Login = () => {
                 </Button>
               </form>
             </FormProvider>
-            <div className="mt-4 text-center">
-             <ForgetPassword />
-            </div>
+          
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
                 Do not have an account?{" "}

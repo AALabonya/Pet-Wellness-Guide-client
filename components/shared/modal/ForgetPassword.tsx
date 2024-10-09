@@ -64,7 +64,7 @@ export default function ForgetPassword() {
                     )}
                   </div>
                  <div className="flex justify-center"> <Button color="primary" type="submit" >
-                    Send Reset Link
+                    Send Link
                   </Button></div>
                 </form>
               </ModalBody>

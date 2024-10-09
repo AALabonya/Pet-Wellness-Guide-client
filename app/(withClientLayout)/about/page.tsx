@@ -27,8 +27,8 @@ export default function AboutUs() {
       </div>
 
       {/* Main Content */}
-      <div className='flex gap-5'>
-        <div className="flex w-full grow bg-slate-50 py-3 w-[50%]">
+      <div className='flex lg:flex-row flex-col  gap-5 mt-10'>
+        <div className="flex w-full grow bg-slate-50 py-3 lg:w-[40%] h-80">
           <div className="w-full gap-1 overflow-hidden bg-slate-50 grid grid-cols-[2fr_1fr_1fr]">
             <div
               className="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none row-span-2"
@@ -48,7 +48,7 @@ export default function AboutUs() {
             ></div>
           </div>
         </div>
-        <div className='w-1/2 lg:pt-28'>
+        <div className='lg:w-1/2 lg:pt-14 text-center lg:text-start justify-center'>
           At PetCare, we are committed to enhancing the relationship between pet owners and their beloved pets. Founded in 2015, our mission is to provide trusted pet care advice, helpful resources, and engaging stories that cater to every pet lovers needs. From expert articles to community tips, we have grown into a platform with 100,000+ members, offering everything from training guides to health tips. Our dedicated team works tirelessly to ensure you have the most accurate information, whether you are a seasoned pet parent or just getting started.
 
           Join us in nurturing happy, healthy pets!
@@ -56,7 +56,7 @@ export default function AboutUs() {
       </div>
 {/* Mission Section */}
 <div className="bg-gray-100 py-8 mt-8 px-8">
-  <div className="flex">
+  <div className="flex lg:flex-row flex-col  gap-5 mt-10">
     <div className="flex-1 bg-white ml-4 p-6 rounded-md lg:pt-32">
       <h4 className="text-2xl font-bold">Our Mission at PetCare</h4>
       <p className="mt-2">At PetCare, our mission is to enhance the bond between pets and their owners by providing trusted advice, heartwarming stories, and a supportive community.</p>

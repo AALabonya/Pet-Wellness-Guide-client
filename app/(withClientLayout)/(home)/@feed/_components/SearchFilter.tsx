@@ -1,9 +1,11 @@
 "use client";
 
 import useDebounce from "@/hooks/debounce.hook";
-import { Input } from "@nextui-org/input";
+import { Button } from "@nextui-org/button";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Input, Textarea } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/select";
-import { SearchIcon } from "lucide-react";
+import { LucideImage, LucidePen, LucideSmile, SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -32,7 +34,8 @@ const SearchFilter = () => {
   };
 
   return (
-    <div className="flex justify-between gap-5 my-5 sticky top-16 z-30 bg-gray-200 dark:bg-[#18181B] py-2 px-2 rounded-md">
+  <div>
+      <div className="flex justify-between gap-5 my-5 sticky top-16 z-30 bg-gray-200 dark:bg-[#18181B] py-2 px-2 rounded-md">
       <Input
         className="w-full"
         placeholder="Search for a tip or story"
@@ -52,6 +55,8 @@ const SearchFilter = () => {
         <SelectItem key={"Story"}>Story</SelectItem>
       </Select>
     </div>
+  
+  </div>
   );
 };
 

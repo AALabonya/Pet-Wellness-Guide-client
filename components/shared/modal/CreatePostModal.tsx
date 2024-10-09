@@ -16,7 +16,7 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/modal";
-import { BadgeCheck, Plus, X } from "lucide-react";
+import { BadgeCheck, LucideImage, LucidePen, LucideSmile, Pen, Plus, X } from "lucide-react";
 import React, { useRef, useState } from "react";
 import {
   FieldValues,
@@ -29,6 +29,8 @@ import { usePost } from "@/hooks/post.hook";
 import { Spinner } from "@nextui-org/spinner";
 import PetSelect from "@/components/form/PetSelect";
 import PetInput from "@/components/form/PetInput";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Textarea } from "@nextui-org/input";
 
 const CreatePostModal = ({
   userId,
@@ -116,13 +118,51 @@ const [imagePreviews, setImagePreviews] = useState<string[]>([]);
 
   return (
     <>
-      <Button
+
+     <Card className="mb-4 w-full" radius="sm">
+      <CardHeader className="flex items-center p-2">
+        <Pen className="text-blue-500 mr-3" />
+        <h2 className="text-lg font-semibold">Create Post</h2>
+      </CardHeader>
+      <CardBody className="">
+        <Textarea
+          readOnly
+          color="primary"
+          placeholder="What's on your mind?"
+          variant="bordered"
+         
+        />
+        <div className="flex justify-between mt-4">
+          <Button
+            startContent={
+              <LucideImage className="mr-2 text-green-500" size={20} />
+            }
+            variant="light"
+     
+          >
+            <span className=" hidden lg:block">Photo/Video</span>
+          </Button>
+          <Button
+            startContent={
+              <LucideSmile className="mr-2 text-orange-500" size={20} />
+            }
+            variant="light"
+     
+          >
+            <span className=" hidden lg:block">Feeling/Activity</span>
+          </Button>
+          <Button
         startContent={<Plus />}
         onPress={onOpen}
-        className="bg-gray-200 dark:bg-slate-950  px-3 text-left py-2 rounded-3xl flex-1 cursor-pointer"
-      >
-        <span>Write pets tips and stories!</span>
+       color="primary"
+      > 
+        {/* <span>Write pets tips and stories!</span> */}
       </Button>
+        </div>
+      </CardBody>
+    </Card>
+    
+   
       <Modal size="3xl" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {() => (

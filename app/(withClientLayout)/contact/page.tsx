@@ -20,7 +20,7 @@ const Contact = () => {
   const { handleSubmit, reset } = methods;
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    // console.log(data);
   };
 
   return (
@@ -31,7 +31,7 @@ const Contact = () => {
             Contact Us
           </h2>
           <p className="max-w-2xl text-center">
-            Have a question or need help with your rental? We are here to help!
+            Have a question or need help with your Pet Care Tips? We are here to help !
             Fill out the form below and we will get back to you as soon as
             possible.
           </p>

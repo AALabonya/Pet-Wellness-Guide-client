@@ -38,11 +38,11 @@ export default function MonetizationModal({
 
   return (
     <>
-      <div className="bg-[#bc4124] shadow-lg text-white p-5 mt-4">
+      <div className="bg-[#bc4124] grid grid-cols-1  shadow-lg text-white p-5 mt-4">
     <h1>Be A Premium Member Then Get Life Time Access </h1>
       <Button
         onPress={onOpen}
-        className={`mt-2 lg:px-16 ${className}`}
+        className={`mt-2  ${className}`}
         endContent={<BadgeCheck />}
       >
        Unlock Premium Access

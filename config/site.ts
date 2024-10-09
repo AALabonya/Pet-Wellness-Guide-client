@@ -1,4 +1,4 @@
-import { LucideIcon, Home, Info, Mail } from "lucide-react";
+import { LucideIcon, Newspaper,BookCheck,SquareUser,UserPen, CircleArrowRight, LogIn } from "lucide-react";
 
 // Define the type for each navigation item
 type NavItem = {
@@ -19,46 +19,51 @@ export const siteConfig: {
     "Expert advice and heartwarming stories to help you care for your pets and strengthen the bond you share",
   navItems: [
     {
-      label: "Home",
+      label: "News-feed",
       href: "/",
-      icon: Home, // Home icon from Lucide
+      icon: Newspaper, // Home icon from Lucide
+    },
+    {
+      label: "Profile",
+      href: "/profile",
+      icon: UserPen, // Info icon for About
     },
     {
       label: "About",
       href: "/about",
-      icon: Info, // Info icon for About
+      icon: BookCheck, // Info icon for About
     },
     {
       label: "Contact Us",
       href: "/contact",
-      icon: Mail, // Mail icon for Contact
+      icon: SquareUser, // Mail icon for Contact
     },
   ],
   navMenuItems: [
     {
-      label: "Home",
+      label: "News-feed",
       href: "/",
-      icon: Home,
+      icon: Newspaper,
     },
     {
       label: "About",
       href: "/about",
-      icon: Info,
+      icon: BookCheck,
     },
     {
       label: "Contact Us",
       href: "/contact",
-      icon: Mail,
+      icon: SquareUser,
     },
     {
       label: "Registration",
       href: "/register",
-      icon: Info,
+      icon: CircleArrowRight,
     },
     {
       label: "Login",
       href: "/login",
-      icon: Mail,
+      icon: LogIn,
     },
   ],
 

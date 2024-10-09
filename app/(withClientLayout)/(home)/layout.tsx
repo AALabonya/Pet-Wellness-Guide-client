@@ -20,10 +20,10 @@ const layout = async ({ feed }: { children: ReactNode; feed: ReactNode }) => {
 
   return (
     <Container>  
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-5 my-5">
+      <div className="grid grid-cols-1 md:grid-cols-8 gap-5 my-16">
         
         {/* Left Sidebar - visible on md and larger screens */}
-        <div className="hidden md:block col-span-1 ">
+        <div className="hidden md:block col-span-2 ">
          <div className="sticky top-20 scroll-my-1"> {/* Sticky wrapper for Sidebar */}
          <RightSidebar 
             users={users}
@@ -35,7 +35,7 @@ const layout = async ({ feed }: { children: ReactNode; feed: ReactNode }) => {
         </div>
         
         {/* Main content */}
-        <main className="col-span-1 md:col-span-3">
+        <main className="col-span-1 md:col-span-4">
           <SearchFilter />
           {feed}
         </main>

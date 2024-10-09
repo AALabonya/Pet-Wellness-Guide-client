@@ -33,7 +33,7 @@ const ContentPost = ({
   };
 
   return (
-    <div className="text-[14px] md:text-lg">
+    <div className="text-default-500 ">
       <div
         className="prose "
         dangerouslySetInnerHTML={{ __html: getDisplayContent() || "" }}

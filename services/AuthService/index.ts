@@ -43,6 +43,7 @@ export interface CustomJwtPayload extends JwtPayload {
   email: string;
   premiumMember: boolean;
   role: string;
+  
 }
 
 export const currentUser = async () => {

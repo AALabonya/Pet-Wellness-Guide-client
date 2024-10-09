@@ -117,7 +117,7 @@ const EditPostModal = ({ postId }: { postId: string }) => {
   //   }
   // };
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
+    // console.log(data);
     
     // Prepare form data
     const formData = new FormData();
