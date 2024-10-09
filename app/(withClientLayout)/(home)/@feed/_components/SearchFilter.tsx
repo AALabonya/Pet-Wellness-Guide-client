@@ -1,11 +1,10 @@
 "use client";
 
 import useDebounce from "@/hooks/debounce.hook";
-import { Button } from "@nextui-org/button";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
+
 import { Input, Textarea } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/select";
-import { LucideImage, LucidePen, LucideSmile, SearchIcon } from "lucide-react";
+import {SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
