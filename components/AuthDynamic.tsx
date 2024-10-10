@@ -21,19 +21,19 @@ const AuthDynamic = () => {
           <NavbarItem className="hidden md:flex">
             <Button
               as={Link}
-              className="text-sm font-normal border-none text-white "
+              className="text-sm font-normal border-none text-white  hover:bg-[#bc4124]"
               href={"/login"}
-              variant="ghost"
+              
             >
               Login
             </Button>
           </NavbarItem>
-          <NavbarItem className="hidden md:flex">
+          <NavbarItem className=" lg:hidden md:flex">
             <Button
               as={Link}
-              className="text-sm font-normal text-white border-accent hover:bg-primaryLight"
+              className="text-sm font-normal text-white border-accent hover:bg-[#bc4124]"
               href={"/register"}
-              variant="ghost"
+             
             >
               Sign Up
             </Button>

@@ -6,8 +6,9 @@ import Sidebar from "./_components/Sidebar";
 import SearchFilter from "./@feed/_components/SearchFilter";
 import { getPremiumPosts } from "@/services/FetchPosts";
 import { currentUser } from "@/services/AuthService";
-import { getUserData, getUsers } from "@/services/User/indext";
+
 import RightSidebar from "./_components/RightSidebar";
+import { getUserData, getUsers } from "@/services/User";
 
 const layout = async ({ feed }: { children: ReactNode; feed: ReactNode }) => {
   const { data: users } = await getUsers({ limit: 5 });
@@ -20,7 +21,7 @@ const layout = async ({ feed }: { children: ReactNode; feed: ReactNode }) => {
 
   return (
     <Container>  
-      <div className="grid grid-cols-1 md:grid-cols-8 gap-5 my-16">
+      <div className="grid grid-cols-1 md:grid-cols-8 gap-5 my-1">
         
         {/* Left Sidebar - visible on md and larger screens */}
         <div className="hidden md:block col-span-2 ">

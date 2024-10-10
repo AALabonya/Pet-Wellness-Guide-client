@@ -51,6 +51,11 @@ export const siteConfig: {
       icon: BookCheck,
     },
     {
+      label: "Profile",
+      href: "/profile",
+      icon: UserPen, // Info icon for About
+    },
+    {
       label: "Contact Us",
       href: "/contact",
       icon: SquareUser,

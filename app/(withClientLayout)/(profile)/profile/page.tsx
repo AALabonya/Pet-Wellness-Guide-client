@@ -3,7 +3,7 @@ import Container from "@/components/shared/Container";
 import EditProfileModal from "@/components/shared/modal/EditProfileModal";
 import { axiosInstance } from "@/lib/AxiosInstance";
 import { currentUser } from "@/services/AuthService";
-import { getUserData } from "@/services/User/indext";
+import { getUserData } from "@/services/User";
 import { TPost } from "@/types/post.interface";
 import { Avatar } from "@nextui-org/avatar";
 import { Card, CardBody, CardHeader } from "@nextui-org/card";

@@ -13,7 +13,7 @@ const page = async () => {
         backgroundPosition: 'center', 
       }}
     >
-     <h1 className="text-5xl font-black text-white -mt-[550px]">
+     <h1 className="text-5xl font-black text-white lg:-mt-[550px] -mt-[150px]">
         Welcome 
         <div className="text-3xl font-black text-white mt-5">{userData?.data?.name}</div>
       </h1>

@@ -1,7 +1,8 @@
 import CreatePostModal from "@/components/shared/modal/CreatePostModal";
 import MonetizationModal from "@/components/shared/modal/MonetizationModal";
 import { currentUser } from "@/services/AuthService";
-import { getUserData } from "@/services/User/indext";
+import { getUserData } from "@/services/User";
+
 import { Avatar } from "@nextui-org/avatar";
 import React from "react";
 

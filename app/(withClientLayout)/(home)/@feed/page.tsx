@@ -2,8 +2,9 @@ import React from "react";
 import CreatePost from "./_components/CreatePost";
 import { getPosts } from "@/services/FetchPosts";
 import { currentUser } from "@/services/AuthService";
-import { getUserData } from "@/services/User/indext";
+
 import PostList from "./_components/PostList";
+import { getUserData } from "@/services/User";
 
 const Feed = async ({ searchParams }: { searchParams: any }) => {
   const searchQuery = searchParams.search || "";
