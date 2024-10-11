@@ -31,11 +31,10 @@ export const getUsersAll = async ({
   queryParams.append("sort", "-createdAt");
   queryParams.append("isDeleted", "false");
 
-  const res = await fetch(
-    `${envConfig.baseApi}/users/all?${queryParams.toString()}`,
-    fetchOptions
-  );
+  const fetchURL = `${envConfig.baseApi}/users/all?${queryParams.toString()}`
+  const res = await fetch(fetchURL,fetchOptions);
+  const data= await res.json()
 
-  return res.json();
+  return data ;
 };
 

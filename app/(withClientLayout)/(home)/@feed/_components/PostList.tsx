@@ -36,9 +36,9 @@ const PostList: React.FC<PostListProps> = ({
         page: 1,
         limit: 10,
       });
-      setPosts(data.result || []);
+      setPosts(data?.result || []);
       setPage(1);
-      setHasMore(data.result.length > 0);
+      setHasMore(data?.result?.length > 0);
       setLoading(false);
     };
 
@@ -78,7 +78,7 @@ const PostList: React.FC<PostListProps> = ({
 
   return (
     <div className="my-5 flex flex-col gap-5">
-      {posts.map((post, index) => {
+      {posts?.map((post, index) => {
         if (index === posts.length - 1) {
           return (
             <div ref={lastPostRef} key={post._id}>

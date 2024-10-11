@@ -30,13 +30,14 @@ export const getUsers = async ({
   }
 
   queryParams.append("sort", "-createdAt");
+  const fetchURL = `${envConfig.baseApi}/users/all?${queryParams.toString()}`
+  console.log(fetchURL);
+  
+  const res = await fetch(fetchURL,fetchOptions);
+  const data= await res.json()
+// console.log(data);
 
-  const res = await fetch(
-    `${envConfig.baseApi}/users/all?${queryParams.toString()}`,
-    fetchOptions
-  );
-
-  return res.json();
+  return data;
 };
 
 export const getUserData = async () => {
@@ -52,6 +53,9 @@ export const getUserData = async () => {
 
   const res = await fetch(`${envConfig.baseApi}/users/me`, fetchOptions);
 
-  return res.json();
+  const data= await res.json()
+  // console.log(data);
+  
+    return data;
 };
 

@@ -156,12 +156,12 @@ const EditPostModal = ({ postId }: { postId: string }) => {
         startContent={<Edit className="w-5" />}
         onPress={onOpen}
       ></Button>
-      <Modal size="3xl" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal size="xl" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {() => (
             <>
-              <ModalHeader className="flex justify-between items-center">
-                Modal Title
+              <ModalHeader className="flex justify-center items-center">
+             Update Post
               </ModalHeader>
               <ModalBody className="overflow-y-auto max-h-[600px]">
                 <FormProvider {...methods}>

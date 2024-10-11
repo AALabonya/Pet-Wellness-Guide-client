@@ -24,7 +24,7 @@ const Feed = async ({ searchParams }: { searchParams: any }) => {
     <div>
       {CreatePostElement}
       <PostList
-        initialPosts={data.result}
+        initialPosts={data?.result}
         userData={userData}
         currentUserData={currentUserData}
         searchQuery={searchQuery}

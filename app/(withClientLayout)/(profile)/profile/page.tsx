@@ -8,7 +8,7 @@ import { TPost } from "@/types/post.interface";
 import { Avatar } from "@nextui-org/avatar";
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
-import { Locate, LucideBadgeCheck,LucideMail, Phone,  User2, UserCheck2 } from "lucide-react";
+import { Link, Locate, LucideBadgeCheck,LucideMail, Phone,  User2, UserCheck2, Users } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -66,12 +66,20 @@ const ProfilePage = async () => {
           <div>
             <EditProfileModal userData={userInfo?.data} />
           </div>
+
+        </div>
+        <div className="flex gap-6">
+          <div className="bg-primary px-2 text-white">About</div>
+
+          <div className="bg-primary px-2 text-white">Followed Users</div>
+          <div className="bg-primary px-2 text-white ">Followers Users</div>
+          <div className="bg-primary px-2 text-white ">Post</div>
         </div>
         <Divider />
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
           <div className="col-span-2 my-5">
             <Card>
-              <CardHeader>About</CardHeader>
+              <CardHeader className="bg-gray-300 text-black dark:text-white font-bold uppercase">About</CardHeader>
               <CardBody className="flex flex-col gap-2">
                 <div className="flex gap-2 items-center">
                   <Phone />
@@ -93,7 +101,7 @@ const ProfilePage = async () => {
             </Card>
 
             <Card className="my-5">
-              <CardHeader>Followed Users</CardHeader>
+              <CardHeader className="bg-gray-300 text-black dark:text-white font-bold uppercase">Followed Users</CardHeader>
               <CardBody className="flex flex-col gap-2">
                 {data?.data.length < 1 ? (
                   <h3>No followed users yet!</h3>
@@ -102,14 +110,45 @@ const ProfilePage = async () => {
                     ({
                       userId,
                       _id,
+                    
                     }: {
-                      userId: { profilePicture: string; name: string };
+                      userId: { profilePicture: string; name: string; email:string; role:string; gender:string; phone:number };
                       _id: string;
                     }) => {
                       return (
-                        <div key={_id} className="flex gap-2 items-center">
-                          <Avatar src={userId.profilePicture} />
-                          <span>{userId?.name}</span>
+                        <div key={_id} className="flex  md:flex-row flex-col rounded-md mb-2 bg-white shadow-xl text-black gap-5 py-2 items-center justify-center text-black">
+                       
+                     
+                          <div
+            className="relative  w-full min-h-[50px] "
+           
+          >
+            <Image
+              src={userId.profilePicture || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
+              alt="user"
+              width={220}
+              height={120}
+              className="left-4 -top-8 z-10 absolute rounded-md h-[120px] w-[220px] border-[7px] border-white object-cover object-top"
+            />    </div>
+            <div className="flex justify-start mr-4">
+              <div className=" px-4">
+                <h5 className="text-[14px] ">
+               
+                 Name: {userId?.name}
+                
+                </h5>
+                <a href="#" className="text-black  flex items-center text-[14px] space-x-1">
+                <LucideMail className="w-4" /> <span>{userId?.email}</span>
+                </a>
+                <div className="text-[14px]">Role:{userId?.role}
+               </div>
+               <div className="text-[14px]">Gender:{userId?.gender} 
+               </div>
+               <div className="text-[14px]">Phone:{userId?.phone} 
+               </div>
+              </div>
+            </div>
+      
                         </div>
                       );
                     }
@@ -119,7 +158,7 @@ const ProfilePage = async () => {
             </Card>
 
             <Card className="my-5">
-              <CardHeader> Followers Users</CardHeader>
+              <CardHeader className="bg-gray-300 text-black dark:text-white font-bold uppercase"> Followers Users</CardHeader>
               <CardBody className="flex flex-col gap-2">
                 {followersData?.data.length < 1 ? (
                   <h3>No followers yet!</h3>
@@ -136,6 +175,7 @@ const ProfilePage = async () => {
                         <div key={_id} className="flex gap-2 items-center">
                           <Avatar src={followerId.profilePicture} />
                           <span>{followerId?.name}</span>
+                         
                         </div>
                       );
                     }

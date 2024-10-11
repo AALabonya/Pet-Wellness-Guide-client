@@ -46,8 +46,8 @@ export const getPosts = async ({
     `${envConfig.baseApi}/posts?${queryParams.toString()}`,
     fetchOptions
   );
-
-  return res.json();
+const data = await res.json()
+  return data;
 };
 
 export const getPremiumPosts = async () => {
@@ -67,6 +67,7 @@ export const getPremiumPosts = async () => {
     fetchOptions
   );
 
-  return res.json();
+  const data =res.json()
+  return data;
 };
 

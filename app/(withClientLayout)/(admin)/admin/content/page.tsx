@@ -1,5 +1,5 @@
 "use client";
-import { getPosts } from "@/services/FetchPosts";
+
 import React, { useEffect, useState } from "react";
 import {
   Table,
@@ -18,6 +18,7 @@ import { BadgeCheck } from "lucide-react";
 import DeletePostModal from "@/components/shared/modal/DeletePostModal";
 import CreatePostModal from "@/components/shared/modal/CreatePostModal";
 import { useUser } from "@/context/user.provider";
+import { getPosts } from "@/services/FetchPosts";
 
 const ContentPage = () => {
   const [posts, setPosts] = useState<TPost[]>([]);
@@ -38,10 +39,10 @@ const ContentPage = () => {
         setLoading(false);
       }
     };
-
+  
     fetchPosts();
   }, [page]);
-
+  
   if (loading) {
     return (
       <div className="p-4">
@@ -60,9 +61,11 @@ const ContentPage = () => {
 
   return (
     <div className="p-4">
+   
       <div className="my-5 flex justify-end">
         <CreatePostModal premiumMember={true} userId={user?.user?.id} />
       </div>
+      <h1 className="text-center py-2 bg-primary text-white">All content</h1>
       <Table aria-label="Example static collection table">
         <TableHeader>
           <TableColumn>Thumbnail</TableColumn>

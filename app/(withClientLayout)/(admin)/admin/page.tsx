@@ -2,7 +2,7 @@ import { axiosInstance } from "@/lib/AxiosInstance";
 import React from "react";
 
 const page = async () => {
-  const { data: userData } = await axiosInstance.get("/users/me");
+  // const { data: userData } = await axiosInstance.get("/users/me");
   
   return (
     <div
@@ -13,9 +13,9 @@ const page = async () => {
         backgroundPosition: 'center', 
       }}
     >
-     <h1 className="text-5xl font-black text-white lg:-mt-[550px] -mt-[150px]">
+     <h1 className="text-5xl font-black text-white lg:-mt-[550px] -mt-[150px] md:-mt-[350px]">
         Welcome 
-        <div className="text-3xl font-black text-white mt-5">{userData?.data?.name}</div>
+        <div className="text-3xl font-black text-white mt-5"> To Dashboard</div>
       </h1>
     </div>
   );

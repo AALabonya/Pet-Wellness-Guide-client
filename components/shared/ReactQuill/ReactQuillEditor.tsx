@@ -22,10 +22,10 @@ const ReactQuillEditor: React.FC<ReactQuillEditorProps> = ({
   defaultValue = "",
 }) => {
   return (
-    <div className="h-44 my-16">
+    <div className="h-32 my-10">
       <EditorToolBar toolbarId={toolbarId} />
       <ReactQuill
-        className="h-44"
+        className="h-32"
         theme="snow"
         defaultValue={defaultValue}
         value={value}

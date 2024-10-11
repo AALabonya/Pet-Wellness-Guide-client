@@ -163,12 +163,12 @@ const [imagePreviews, setImagePreviews] = useState<string[]>([]);
     </Card>
     
    
-      <Modal size="3xl" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal size="xl" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {() => (
             <>
-              <ModalHeader className="flex justify-between items-center">
-                Modal Title
+              <ModalHeader className="flex justify-center items-center">
+                Create Pet Care Tips and Stories Post
               </ModalHeader>
               <ModalBody className="overflow-y-auto max-h-[600px]">
                 <FormProvider {...methods}>
@@ -209,7 +209,7 @@ const [imagePreviews, setImagePreviews] = useState<string[]>([]);
                     {imagePreviews.length > 0 && (
                         <div className="mt-4 flex flex-wrap gap-4">
                           {imagePreviews.map((preview, index) => (
-                            <div key={index} className="relative w-32 h-32">
+                            <div key={index} className="relative w-32 h-24 mb-1">
                               <span
                                 onClick={() => removeImage(index)}
                                 className="hover:bg-red-400 cursor-pointer hover:scale-110 absolute z-50 top-1 right-1 bg-red-500 rounded-full text-white p-1"
@@ -227,9 +227,9 @@ const [imagePreviews, setImagePreviews] = useState<string[]>([]);
                           ))}
                         </div>
                       )}
-                      <div className="space-y-2">
+                      <div className="">
                         <label
-                          className="flex h-14 w-full cursor-pointer items-center justify-center rounded-xl border-2 border-default-200 text-default-500 shadow-sm transition-all duration-100 hover:border-default-400"
+                          className="flex h-10 w-full cursor-pointer items-center justify-center rounded-xl border-2 border-default-200 text-default-500 shadow-sm transition-all duration-100 hover:border-default-400"
                           htmlFor="image"
                         >
                           Upload Image

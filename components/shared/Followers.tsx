@@ -69,7 +69,7 @@ const Followers = ({
       onClick={handleFollower}
       variant={"bordered"}
       endContent={
-        isFollowing ? <UserCheck size={14} /> : <UserPlus size={14} />
+        isFollowing
       }
     >
       {isFollowing ? "Unfollow" : "Follow"}

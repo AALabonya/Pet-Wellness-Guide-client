@@ -187,7 +187,7 @@ const Sidebar = ({
           </CardHeader>
           <CardBody>
             <div className="space-y-4">
-              {users.map(
+              {users?.map(
                 ({
                   _id,
                   profilePicture,
@@ -271,7 +271,7 @@ const Sidebar = ({
       ) : (
         <div className="text-center shadow-lg text-red-500">
           <p>Premium posts are only available for premium members.</p>
-          <span>Please log in to buy premium access.</span>
+          <span>Please login to buy premium access.</span>
           <div  className="text-blue-500">
            <MonetizationModal/>
           </div>

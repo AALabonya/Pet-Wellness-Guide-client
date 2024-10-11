@@ -190,7 +190,7 @@ const PostCard: React.FC<PostCardProps> = ({
   return (
     <div className="relative">
       {/* Overlay for non-premium users on premium posts */}
-      {!userData?.premiumMember && isPremium ? (
+      {!premium && isPremium ? (
         <div className="absolute inset-0 bg-black rounded-xl bg-opacity-50 flex items-center justify-center z-10">
           <div className="text-center text-white space-y-2">
             <p className="text-xl">This post is for Premium members only.</p>
@@ -198,7 +198,7 @@ const PostCard: React.FC<PostCardProps> = ({
             <div className="flex justify-center text-center">
             <DoorClosed className="text-center"/>
             </div>
-            <button className="px-4 py-2 bg-[#bc4124] text-white rounded-lg hover:bg-yellow-600">
+            <button className="px-4 py-2 bg-[#bc4124] text-white rounded-lg hover:bg-[#bc4124]">
 
               Become a Premium Member
             </button>
@@ -208,7 +208,7 @@ const PostCard: React.FC<PostCardProps> = ({
 
       {/* Card with conditional blur effect */}
       <Card
-        className={`p-3 md:p-4 ${!userData?.premiumMember && isPremium ? "blur-sm" : ""}`}
+        className={`p-3 md:p-4 ${!premium && isPremium ? "blur-sm" : ""}`}
         radius="sm"
       >
         <CardHeader className="lg:justify-between justify-left md:flex-row">

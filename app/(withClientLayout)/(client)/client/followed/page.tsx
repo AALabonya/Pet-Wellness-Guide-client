@@ -7,6 +7,7 @@ const Followers = async () => {
   const { data } = await axiosInstance.get(`/followers/metoo`);
   return (
     <div className="p-4">
+       <h1 className="text-center py-2 bg-primary text-white">All Followed Data</h1>
       <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md">
         <thead>
           <tr className="bg-gray-100 dark:bg-gray-700">

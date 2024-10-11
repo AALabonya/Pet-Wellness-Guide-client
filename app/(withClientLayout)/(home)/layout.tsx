@@ -30,7 +30,7 @@ const layout = async ({ feed }: { children: ReactNode; feed: ReactNode }) => {
             users={users}
             userData={userData}
             premium={premium}
-            premiumPosts={premiumPosts.result} 
+            premiumPosts={premiumPosts?.result} 
           />
          </div>
         </div>
@@ -46,7 +46,7 @@ const layout = async ({ feed }: { children: ReactNode; feed: ReactNode }) => {
           <SidebarWrapper
             users={users}
             userData={userData}
-            premiumPosts={premiumPosts.result}
+            premiumPosts={premiumPosts?.result}
             premium={premium} // Pass premium status here as well if needed
           />
         </div>

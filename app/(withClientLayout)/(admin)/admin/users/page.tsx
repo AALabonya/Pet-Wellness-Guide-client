@@ -10,13 +10,14 @@ import {
 
 import React, { useEffect, useState } from "react";
 import { TUser } from "@/types";
-import { getUsersAll } from "@/services/userFetch";
+
 import { Skeleton } from "@nextui-org/skeleton";
 import { Pagination } from "@nextui-org/pagination";
 import { Avatar } from "@nextui-org/avatar";
 import { Badge } from "@nextui-org/badge";
 import { BadgeCheck } from "lucide-react";
 import DeleteUserModal from "@/components/shared/modal/DeleteUserModal";
+import { getUsersAll } from "@/services/userFetch";
 
 const Users = () => {
   const [users, setUsers] = useState<TUser[]>([]);
@@ -36,9 +37,9 @@ const Users = () => {
         setLoading(false);
       }
     };
-
     fetchPosts();
   }, [page]);
+  
 
   if (loading) {
     return (
@@ -58,6 +59,7 @@ const Users = () => {
 
   return (
     <div className="p-4">
+       <h1 className="text-center py-2 bg-primary text-white">All Users</h1>
       <Table aria-label="Example static collection table">
         <TableHeader>
           <TableColumn>Avatar</TableColumn>

@@ -26,7 +26,6 @@ const MyPosts = () => {
   const [totalPages, setTotalPages] = useState();
   const { user } = useUser();
 
-
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -39,9 +38,9 @@ const MyPosts = () => {
         setLoading(false);
       }
     };
-
     fetchPosts();
   }, [page, user]);
+  
 
   if (loading) {
     return (
@@ -61,6 +60,7 @@ const MyPosts = () => {
 
   return (
     <div className="p-4">
+       <h1 className="text-center py-2 bg-primary text-white">My All Post</h1>
       <Table aria-label="Example static collection table">
         <TableHeader>
           <TableColumn>Thumbnail</TableColumn>
